@@ -1,0 +1,12 @@
+[project]
+name = "nanobanana-mcp-server"
+version = "1.0.0"
+description = "MCP server for Nano Banana (Google Gemini) image generation"
+requires-python = ">=3.11"
+dependencies = [
+    "mcp[cli]>=1.0.0",
+    "google-genai>=1.0.0",
+]
+
+[project.scripts]
+nanobanana = "nanobanana_server:mcp.run"

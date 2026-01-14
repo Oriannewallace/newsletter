@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>McLaren MCL38 2024 Evolution</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .evolution-container {
+            font-family: system-ui, -apple-system, sans-serif;
+            background: #0a0a0a;
+            border-radius: 16px;
+            padding: 24px;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #fff;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .title {
+            font-size: 28px;
+            font-weight: 700;
+            background: linear-gradient(90deg, #FF8000, #47C7FC);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: #888;
+        }
+
+        .display {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: #000;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .display video,
+        .display img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.5s ease;
+        }
+
+        .display img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+        }
+
+        .display img.active {
+            opacity: 1;
+        }
+
+        .stats-overlay {
+            position: absolute;
+            bottom: 16px;
+            left: 16px;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(8px);
+            padding: 12px 16px;
+            border-radius: 8px;
+        }
+
+        .stats-label {
+            display: block;
+            font-size: 12px;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .stats-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #FF8000;
+            transition: color 0.3s ease;
+        }
+
+        .controls {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .stage-btn {
+            flex: 1;
+            padding: 16px 12px;
+            border: 2px solid #FF8000;
+            border-radius: 12px;
+            background: #1a1a1a;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .stage-btn:hover {
+            background: #2a2a2a;
+        }
+
+        .stage-btn.active {
+            background: #FF8000;
+            color: #000;
+        }
+
+        .stage-btn[data-stage="1"] { border-color: #FF8000; }
+        .stage-btn[data-stage="1"].active { background: #FF8000; }
+
+        .stage-btn[data-stage="2"] { border-color: #47C7FC; }
+        .stage-btn[data-stage="2"].active { background: #47C7FC; }
+
+        .stage-btn[data-stage="3"] { border-color: #FFD700; }
+        .stage-btn[data-stage="3"].active { background: #FFD700; }
+
+        .btn-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .btn-desc {
+            display: block;
+            font-size: 11px;
+            opacity: 0.7;
+            margin-top: 4px;
+        }
+
+        .progress-bar {
+            display: flex;
+            gap: 4px;
+            height: 4px;
+        }
+
+        .progress-segment {
+            flex: 1;
+            background: #333;
+            border-radius: 2px;
+            transition: background 0.3s ease;
+        }
+
+        .progress-segment.filled:nth-child(1) { background: #FF8000; }
+        .progress-segment.filled:nth-child(2) { background: #47C7FC; }
+        .progress-segment.filled:nth-child(3) { background: #FFD700; }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .controls {
+                flex-direction: column;
+            }
+            .title {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="evolution-container">
+        <div class="header">
+            <h2 class="title">McLaren MCL38 Evolution</h2>
+            <p class="subtitle">How upgrades won the 2024 championship</p>
+        </div>
+
+        <div class="display">
+            <!-- Replace these src URLs with your generated assets -->
+            <video id="mainVideo" autoplay loop muted playsinline>
+                <source src="YOUR_VEO3_VIDEO.mp4" type="video/mp4">
+            </video>
+
+            <!-- Or use images instead -->
+            <img id="img1" class="active" src="YOUR_IMAGE_PRE_MIAMI.png" alt="Pre-Miami Spec">
+            <img id="img2" src="YOUR_IMAGE_MIAMI.png" alt="Miami Upgrade">
+            <img id="img3" src="YOUR_IMAGE_FINAL.png" alt="Final Spec">
+
+            <div class="stats-overlay">
+                <span class="stats-label" id="roundsLabel">Rounds 1-5</span>
+                <span class="stats-value" id="statsValue">19.2 pts/race</span>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button class="stage-btn active" data-stage="1" onclick="setStage(1)">
+                <span class="btn-label">Pre-Miami</span>
+                <span class="btn-desc">Traditional sidepods</span>
+            </button>
+            <button class="stage-btn" data-stage="2" onclick="setStage(2)">
+                <span class="btn-label">Miami Upgrade</span>
+                <span class="btn-desc">Hollowed sidepods</span>
+            </button>
+            <button class="stage-btn" data-stage="3" onclick="setStage(3)">
+                <span class="btn-label">Championship</span>
+                <span class="btn-desc">Final spec</span>
+            </button>
+        </div>
+
+        <div class="progress-bar">
+            <div class="progress-segment filled"></div>
+            <div class="progress-segment"></div>
+            <div class="progress-segment"></div>
+        </div>
+    </div>
+
+    <script>
+        const stageData = {
+            1: { rounds: "Rounds 1-5", stats: "19.2 pts/race", color: "#FF8000" },
+            2: { rounds: "Round 6+", stats: "+0.5s per lap", color: "#47C7FC" },
+            3: { rounds: "Round 24", stats: "31.1 pts/race", color: "#FFD700" }
+        };
+
+        function setStage(stage) {
+            // Update buttons
+            document.querySelectorAll('.stage-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`[data-stage="${stage}"]`).classList.add('active');
+
+            // Update images
+            document.querySelectorAll('.display img').forEach(img => {
+                img.classList.remove('active');
+            });
+            document.getElementById(`img${stage}`).classList.add('active');
+
+            // Update stats
+            const data = stageData[stage];
+            document.getElementById('roundsLabel').textContent = data.rounds;
+            document.getElementById('statsValue').textContent = data.stats;
+            document.getElementById('statsValue').style.color = data.color;
+
+            // Update progress bar
+            document.querySelectorAll('.progress-segment').forEach((seg, index) => {
+                if (index < stage) {
+                    seg.classList.add('filled');
+                } else {
+                    seg.classList.remove('filled');
+                }
+            });
+        }
+    </script>
+</body>
+</html>

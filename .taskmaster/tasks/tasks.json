@@ -1,0 +1,379 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Set up Beehiiv account and configure newsletter",
+      "description": "Create Beehiiv account, configure newsletter settings, and set up 'The Winning Formula' branding",
+      "details": "Sign up for Beehiiv, configure newsletter name, description, sender details, and basic settings. Set up welcome email sequence.",
+      "status": "pending",
+      "dependencies": [],
+      "priority": "high",
+      "tags": ["setup"],
+      "subtasks": [
+        {"id": 1, "title": "Create Beehiiv account and verify email", "status": "pending"},
+        {"id": 2, "title": "Set newsletter name to 'The Winning Formula'", "status": "pending"},
+        {"id": 3, "title": "Write newsletter description highlighting data-driven content", "status": "pending"},
+        {"id": 4, "title": "Configure sender name and email address", "status": "pending"},
+        {"id": 5, "title": "Set up custom domain (optional)", "status": "pending"},
+        {"id": 6, "title": "Create welcome email for new subscribers", "status": "pending"},
+        {"id": 7, "title": "Configure subscription confirmation settings", "status": "pending"}
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Design newsletter visual identity and branding",
+      "description": "Create consistent visual branding for The Winning Formula newsletter including colors, fonts, and templates",
+      "details": "Design header/logo, choose color palette that works across all four pillars (Property, F1, Skincare, Tech), create reusable templates for each content type.",
+      "status": "pending",
+      "dependencies": [1],
+      "priority": "high",
+      "tags": ["setup", "design"],
+      "subtasks": [
+        {"id": 1, "title": "Design newsletter logo/header image", "status": "pending"},
+        {"id": 2, "title": "Choose primary color palette (works across all 4 pillars)", "status": "pending"},
+        {"id": 3, "title": "Select fonts for headings and body text", "status": "pending"},
+        {"id": 4, "title": "Create email template for Property content", "status": "pending"},
+        {"id": 5, "title": "Create email template for F1 content", "status": "pending"},
+        {"id": 6, "title": "Create email template for Skincare content", "status": "pending"},
+        {"id": 7, "title": "Create email template for Tech content", "status": "pending"},
+        {"id": 8, "title": "Design footer with social links and unsubscribe", "status": "pending"}
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Create simple ROI model template for property analysis",
+      "description": "Build an Excel/Google Sheets ROI model for property investment analysis to use in newsletter screenshots",
+      "details": "Create a spreadsheet model that demonstrates ROI calculations, supply vs demand indicators, and renovation trade-offs. Should be simple enough to screenshot for newsletter content.",
+      "status": "pending",
+      "dependencies": [],
+      "priority": "high",
+      "tags": ["property", "tools"],
+      "subtasks": [
+        {"id": 1, "title": "Create spreadsheet with property input fields (price, rent, expenses)", "status": "pending"},
+        {"id": 2, "title": "Build gross rental yield calculator", "status": "pending"},
+        {"id": 3, "title": "Build net rental yield calculator (with expenses)", "status": "pending"},
+        {"id": 4, "title": "Add cash-on-cash return calculation", "status": "pending"},
+        {"id": 5, "title": "Create comparison section for multiple properties", "status": "pending"},
+        {"id": 6, "title": "Add renovation ROI calculator section", "status": "pending"},
+        {"id": 7, "title": "Format for clean screenshots (colors, borders, labels)", "status": "pending"},
+        {"id": 8, "title": "Create example with sample data", "status": "pending"}
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Write Property Issue #1: How I evaluate a suburb using data",
+      "description": "First property newsletter issue teaching readers how to evaluate suburbs using data-driven approaches",
+      "details": "Cover: Evaluating a suburb using data, why averages are misleading, supply vs demand indicators. Include screenshots from ROI model. Example: 'How I evaluate a suburb before viewing listings'",
+      "status": "pending",
+      "dependencies": [1, 2, 3],
+      "priority": "high",
+      "tags": ["property", "content"],
+      "subtasks": [
+        {"id": 1, "title": "Outline the key data points for suburb evaluation", "status": "pending"},
+        {"id": 2, "title": "Write intro hook explaining why data matters", "status": "pending"},
+        {"id": 3, "title": "Write section on supply vs demand indicators", "status": "pending"},
+        {"id": 4, "title": "Write section on why averages are misleading", "status": "pending"},
+        {"id": 5, "title": "Create/capture ROI model screenshots", "status": "pending"},
+        {"id": 6, "title": "Write specific example: evaluating a real suburb", "status": "pending"},
+        {"id": 7, "title": "Write conclusion with actionable takeaways", "status": "pending"},
+        {"id": 8, "title": "Edit and proofread full issue", "status": "pending"},
+        {"id": 9, "title": "Schedule issue in Beehiiv", "status": "pending"}
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Write Property Issue #2: Why great rental yields fail under comparison",
+      "description": "Second property newsletter issue exploring ROI assumptions and why surface-level metrics can be misleading",
+      "details": "Deep dive into ROI assumptions, renovation trade-offs, and why great rental yields can fail under proper comparison. Use specific examples with data.",
+      "status": "pending",
+      "dependencies": [4],
+      "priority": "medium",
+      "tags": ["property", "content"],
+      "subtasks": [
+        {"id": 1, "title": "Research common rental yield misconceptions", "status": "pending"},
+        {"id": 2, "title": "Write intro with compelling failed investment example", "status": "pending"},
+        {"id": 3, "title": "Write section on hidden costs that kill yields", "status": "pending"},
+        {"id": 4, "title": "Write section on ROI assumptions people get wrong", "status": "pending"},
+        {"id": 5, "title": "Create comparison table: surface yield vs true ROI", "status": "pending"},
+        {"id": 6, "title": "Write section on renovation trade-offs", "status": "pending"},
+        {"id": 7, "title": "Write conclusion with decision framework", "status": "pending"},
+        {"id": 8, "title": "Edit and proofread full issue", "status": "pending"},
+        {"id": 9, "title": "Schedule issue in Beehiiv", "status": "pending"}
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Create F1 static charts and data visualizations",
+      "description": "Build static charts showing F1 performance data, lap times, and strategy analysis for newsletter visuals",
+      "details": "Create visualizations covering: car evolution data, strategy vs results comparisons, driver performance trends. Should be clear and engaging for non-technical readers.",
+      "status": "pending",
+      "dependencies": [],
+      "priority": "medium",
+      "tags": ["f1", "tools"],
+      "subtasks": [
+        {"id": 1, "title": "Gather F1 lap time data from recent races", "status": "pending"},
+        {"id": 2, "title": "Create lap time comparison chart template", "status": "pending"},
+        {"id": 3, "title": "Create pit stop strategy visualization", "status": "pending"},
+        {"id": 4, "title": "Create driver performance trend chart", "status": "pending"},
+        {"id": 5, "title": "Create car upgrade impact visualization", "status": "pending"},
+        {"id": 6, "title": "Style charts with consistent branding", "status": "pending"},
+        {"id": 7, "title": "Export charts as high-quality images", "status": "pending"}
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Write F1 Issue #1: Why this upgrade mattered more than pole position",
+      "description": "First F1 newsletter issue using race data to explain performance analysis concepts",
+      "details": "Use F1 as an engaging lens to explain: car evolution, strategy vs results, regulation impacts. Example topic: 'Why this upgrade mattered more than pole position'",
+      "status": "pending",
+      "dependencies": [1, 2, 6],
+      "priority": "medium",
+      "tags": ["f1", "content"],
+      "subtasks": [
+        {"id": 1, "title": "Select specific race/upgrade to analyze", "status": "pending"},
+        {"id": 2, "title": "Write intro explaining why upgrades matter", "status": "pending"},
+        {"id": 3, "title": "Write section on the specific upgrade and its impact", "status": "pending"},
+        {"id": 4, "title": "Include data visualization showing before/after", "status": "pending"},
+        {"id": 5, "title": "Write section on strategy vs starting position", "status": "pending"},
+        {"id": 6, "title": "Connect to broader lesson about data analysis", "status": "pending"},
+        {"id": 7, "title": "Edit and proofread full issue", "status": "pending"},
+        {"id": 8, "title": "Schedule issue in Beehiiv", "status": "pending"}
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Write F1 Issue #2: What lap-time data reveals beyond race standings",
+      "description": "Second F1 newsletter issue diving into driver performance trends and data insights",
+      "details": "Cover driver performance trends and what lap-time data reveals that standings don't show. Include static charts and clear analysis.",
+      "status": "pending",
+      "dependencies": [7],
+      "priority": "low",
+      "tags": ["f1", "content"],
+      "subtasks": [
+        {"id": 1, "title": "Analyze lap time data for interesting patterns", "status": "pending"},
+        {"id": 2, "title": "Write intro on why standings don't tell full story", "status": "pending"},
+        {"id": 3, "title": "Write section on consistency vs speed trade-offs", "status": "pending"},
+        {"id": 4, "title": "Include lap time distribution charts", "status": "pending"},
+        {"id": 5, "title": "Write section on driver performance trends", "status": "pending"},
+        {"id": 6, "title": "Write conclusion with data interpretation tips", "status": "pending"},
+        {"id": 7, "title": "Edit and proofread full issue", "status": "pending"},
+        {"id": 8, "title": "Schedule issue in Beehiiv", "status": "pending"}
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Write Skincare Issue: Ingredient trends and what data says vs influencer claims",
+      "description": "Skincare newsletter issue showing how data reshapes understanding of skincare trends",
+      "details": "Cover: ingredient trends, product popularity cycles, consumer sentiment vs hype. Example: 'What product data says vs influencer claims'. Tie-in to skincare app insights.",
+      "status": "pending",
+      "dependencies": [1, 2],
+      "priority": "medium",
+      "tags": ["skincare", "content"],
+      "subtasks": [
+        {"id": 1, "title": "Research current trending skincare ingredients", "status": "pending"},
+        {"id": 2, "title": "Gather data on ingredient popularity over time", "status": "pending"},
+        {"id": 3, "title": "Write intro on hype vs data in skincare", "status": "pending"},
+        {"id": 4, "title": "Write section on ingredient trend analysis", "status": "pending"},
+        {"id": 5, "title": "Write section comparing influencer claims to data", "status": "pending"},
+        {"id": 6, "title": "Include skincare app insights tie-in", "status": "pending"},
+        {"id": 7, "title": "Write section on product popularity cycles", "status": "pending"},
+        {"id": 8, "title": "Write conclusion with how to evaluate products", "status": "pending"},
+        {"id": 9, "title": "Edit and proofread full issue", "status": "pending"},
+        {"id": 10, "title": "Schedule issue in Beehiiv", "status": "pending"}
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Write Tech Issue: When simple models beat complex ones",
+      "description": "Tech/data newsletter issue explaining how data models are built and evaluated in accessible terms",
+      "details": "Cover: when simple models beat complex ones, why ML is not magic, how assumptions are tested, model tracking concepts. Mention tools like statsmodels, PyTorch, MLflow without intimidating readers.",
+      "status": "pending",
+      "dependencies": [1, 2],
+      "priority": "medium",
+      "tags": ["tech", "content"],
+      "subtasks": [
+        {"id": 1, "title": "Outline key concepts to explain simply", "status": "pending"},
+        {"id": 2, "title": "Write intro demystifying ML/data modeling", "status": "pending"},
+        {"id": 3, "title": "Write section: when simple beats complex (with example)", "status": "pending"},
+        {"id": 4, "title": "Write section: why ML is not magic", "status": "pending"},
+        {"id": 5, "title": "Write section: how assumptions are tested", "status": "pending"},
+        {"id": 6, "title": "Write section: model tracking basics (mention MLflow)", "status": "pending"},
+        {"id": 7, "title": "Create simple diagram or visual", "status": "pending"},
+        {"id": 8, "title": "Write conclusion with transferable principles", "status": "pending"},
+        {"id": 9, "title": "Edit and proofread full issue", "status": "pending"},
+        {"id": 10, "title": "Schedule issue in Beehiiv", "status": "pending"}
+      ]
+    },
+    {
+      "id": 11,
+      "title": "Set up publishing schedule and content calendar",
+      "description": "Create a 90-day content calendar rotating between the four pillars with 1 issue per week or every 10 days",
+      "details": "Plan the rotation of Property, F1, Skincare, and Tech content. Schedule should deliver 2-3 property issues, 1-2 F1 issues, 1 skincare issue, and tech content over 90 days.",
+      "status": "pending",
+      "dependencies": [1],
+      "priority": "high",
+      "tags": ["operations"],
+      "subtasks": [
+        {"id": 1, "title": "Decide on publishing frequency (weekly vs every 10 days)", "status": "pending"},
+        {"id": 2, "title": "Map out 90-day calendar with pillar rotation", "status": "pending"},
+        {"id": 3, "title": "Assign specific topics to each scheduled date", "status": "pending"},
+        {"id": 4, "title": "Set up calendar reminders for content deadlines", "status": "pending"},
+        {"id": 5, "title": "Create content buffer plan (write ahead)", "status": "pending"},
+        {"id": 6, "title": "Document the schedule in Beehiiv or external tool", "status": "pending"}
+      ]
+    },
+    {
+      "id": 12,
+      "title": "Set up success metrics tracking",
+      "description": "Configure tracking and reporting for key metrics: subscribers, open rate, replies, and tool requests",
+      "details": "Use Beehiiv analytics to track: subscriber growth toward 500+ goal, open rates, reply rates, and requests for tools. Set up weekly review cadence.",
+      "status": "pending",
+      "dependencies": [1],
+      "priority": "medium",
+      "tags": ["operations", "metrics"],
+      "subtasks": [
+        {"id": 1, "title": "Familiarize with Beehiiv analytics dashboard", "status": "pending"},
+        {"id": 2, "title": "Set up subscriber growth tracking toward 500 goal", "status": "pending"},
+        {"id": 3, "title": "Create spreadsheet to log weekly metrics", "status": "pending"},
+        {"id": 4, "title": "Define target open rate benchmark", "status": "pending"},
+        {"id": 5, "title": "Set up system to track replies and engagement", "status": "pending"},
+        {"id": 6, "title": "Create method to track tool/feature requests", "status": "pending"},
+        {"id": 7, "title": "Schedule weekly metrics review", "status": "pending"},
+        {"id": 8, "title": "Define Phase 1 exit criteria checkpoints", "status": "pending"}
+      ]
+    },
+    {
+      "id": 13,
+      "title": "Create F1 Car Evolution 360° Spinning Animation (Option A: McLaren 2024)",
+      "description": "Build an interactive 360-degree spinning McLaren MCL38 animation showing the transformation through the 2024 season, using Nano Banana + Veo 3 + Framer",
+      "details": "Option A: Single Year Evolution - Focus on McLaren 2024 transformation. Shows: Pre-Miami → Miami Upgrade → Final Spec. Story: 'How upgrades won the championship'. The car spins continuously while morphing between the 3 upgrade stages.",
+      "status": "in-progress",
+      "dependencies": [],
+      "priority": "high",
+      "tags": ["f1", "visual", "interactive"],
+      "subtasks": [
+        {"id": 1, "title": "Research 2024 F1 car upgrades - identify key upgrade packages by team and race", "status": "pending"},
+        {"id": 2, "title": "Select focus team(s) for animation (Red Bull, McLaren, Ferrari)", "status": "pending"},
+        {"id": 3, "title": "Gather reference images of F1 cars at different season stages", "status": "pending"},
+        {"id": 4, "title": "Write Nano Banana prompts for F1 car base images (front, side, 3/4 angles)", "status": "pending"},
+        {"id": 5, "title": "Generate F1 car images using Nano Banana for each upgrade stage", "status": "pending"},
+        {"id": 6, "title": "Write Veo 3 prompt for 360° spinning animation with smooth morphing", "status": "pending"},
+        {"id": 7, "title": "Generate spinning/morphing video using Veo 3", "status": "done"},
+        {"id": 8, "title": "Create multiple versions (one per team or upgrade stage)", "status": "pending"},
+        {"id": 9, "title": "Design Framer component with team/version toggle controls", "status": "pending"},
+        {"id": 10, "title": "Build interactive web component in Framer", "status": "pending"},
+        {"id": 11, "title": "Add labels/annotations showing what changed in each upgrade", "status": "pending"},
+        {"id": 12, "title": "Test and optimize for newsletter embed and web display", "status": "pending"},
+        {"id": 13, "title": "Export final assets and integrate into F1 newsletter content", "status": "pending"}
+      ]
+    },
+    {
+      "id": 17,
+      "title": "Add Interactive Hover Feature to F1 Car Component",
+      "description": "When users hover over the F1 car image, show detailed info card with specs, performance data, and championship progression",
+      "details": "Enhance the McLarenEvolution component with hover interactions. On hover, display: technical specs (engine, drivers, suspension), the Miami upgrade turning point stats, championship position journey (4th → 1st). Use CSS transitions and Framer Motion for smooth animations.",
+      "status": "pending",
+      "dependencies": [13],
+      "priority": "high",
+      "tags": ["f1", "visual", "interactive", "ux"],
+      "subtasks": [
+        {"id": 1, "title": "Design hover info card layout with specs section", "status": "pending"},
+        {"id": 2, "title": "Add McLaren MCL38 technical specs data (engine, drivers, suspension)", "status": "pending"},
+        {"id": 3, "title": "Add Miami upgrade impact stats (19.2 → 31.1 pts/race)", "status": "pending"},
+        {"id": 4, "title": "Add championship progression data (position by race)", "status": "pending"},
+        {"id": 5, "title": "Implement hover state management in React component", "status": "pending"},
+        {"id": 6, "title": "Add CSS transitions for smooth hover animations", "status": "pending"},
+        {"id": 7, "title": "Create glassmorphism info card styling", "status": "pending"},
+        {"id": 8, "title": "Test hover interactions on desktop and tablet", "status": "pending"},
+        {"id": 9, "title": "Add fallback tap interaction for mobile users", "status": "pending"}
+      ]
+    },
+    {
+      "id": 18,
+      "title": "Create Championship Progression Visualization",
+      "description": "Visual graphic showing McLaren's journey from 4th place (Bahrain) to 1st place (Abu Dhabi) in the 2024 Constructors Championship",
+      "details": "Create an animated or static visualization showing: Starting position (4th, 32pts behind), Miami turning point, Final position (1st, 666pts). Could be a line chart, position tracker, or creative infographic. Should tell the 'underdog to champion' story visually.",
+      "status": "pending",
+      "dependencies": [],
+      "priority": "high",
+      "tags": ["f1", "visual", "data-viz"],
+      "subtasks": [
+        {"id": 1, "title": "Gather race-by-race constructor standings data for 2024", "status": "pending"},
+        {"id": 2, "title": "Identify key milestone races (Bahrain, Miami, Abu Dhabi)", "status": "pending"},
+        {"id": 3, "title": "Design visualization concept (line chart vs position tracker)", "status": "pending"},
+        {"id": 4, "title": "Create static version with key data points", "status": "pending"},
+        {"id": 5, "title": "Add team color coding (McLaren papaya, Red Bull blue, Ferrari red)", "status": "pending"},
+        {"id": 6, "title": "Annotate Miami upgrade turning point on visual", "status": "pending"},
+        {"id": 7, "title": "Create animated version showing progression over time", "status": "pending"},
+        {"id": 8, "title": "Export for newsletter embed", "status": "pending"}
+      ]
+    },
+    {
+      "id": 16,
+      "title": "Create F1 Multi-Year Winners Animation (Option B - FUTURE)",
+      "description": "Toggle between championship-winning cars across multiple years using Nano Banana + Veo 3 + Framer",
+      "details": "Option B: Multi-Year Winners - Toggle between: 2024 McLaren MCL38, 2023 Red Bull RB19, 2022 Red Bull RB18, 2021 Mercedes W12. Story: 'Evolution of winning F1 cars'. Build after Option A is complete.",
+      "status": "pending",
+      "dependencies": [13],
+      "priority": "low",
+      "tags": ["f1", "visual", "interactive", "future"],
+      "subtasks": [
+        {"id": 1, "title": "Research 2021-2023 championship-winning car designs", "status": "pending"},
+        {"id": 2, "title": "Generate images for Red Bull RB19 (2023)", "status": "pending"},
+        {"id": 3, "title": "Generate images for Red Bull RB18 (2022)", "status": "pending"},
+        {"id": 4, "title": "Generate images for Mercedes W12 (2021)", "status": "pending"},
+        {"id": 5, "title": "Create morphing animation between all 4 cars", "status": "pending"},
+        {"id": 6, "title": "Build year selector toggle in Framer", "status": "pending"}
+      ]
+    },
+    {
+      "id": 14,
+      "title": "Build Property24 Data Scraper",
+      "description": "Automated scraper to collect rental and sales listings from Property24 for suburb analysis",
+      "details": "Python scraper using Playwright to extract property listings including price, bedrooms, size, and property type. Includes suburb analyzer for yield calculations.",
+      "status": "done",
+      "dependencies": [],
+      "priority": "high",
+      "tags": ["property", "tools", "data"],
+      "subtasks": [
+        {"id": 1, "title": "Set up Playwright-based scraper for Property24", "status": "done"},
+        {"id": 2, "title": "Extract rental listings with price, bedrooms, size", "status": "done"},
+        {"id": 3, "title": "Extract sales listings with price and property details", "status": "done"},
+        {"id": 4, "title": "Build suburb analyzer with yield calculations", "status": "done"},
+        {"id": 5, "title": "Create CLI for easy scraping and analysis", "status": "done"},
+        {"id": 6, "title": "Add support for multiple Cape Town suburbs", "status": "done"}
+      ]
+    },
+    {
+      "id": 15,
+      "title": "Build F1 Data Extractor with FastF1",
+      "description": "Data extraction toolkit using FastF1 for lap times, race results, driver comparisons, and strategy analysis",
+      "details": "Python toolkit that pulls official F1 timing data for the 2024 season. Includes driver comparison, consistency analysis, teammate battles, and race summaries.",
+      "status": "done",
+      "dependencies": [],
+      "priority": "high",
+      "tags": ["f1", "tools", "data"],
+      "subtasks": [
+        {"id": 1, "title": "Set up FastF1 data extractor", "status": "done"},
+        {"id": 2, "title": "Build lap time and race pace analyzer", "status": "done"},
+        {"id": 3, "title": "Build qualifying vs race comparison tool", "status": "done"},
+        {"id": 4, "title": "Build team performance tracker", "status": "done"},
+        {"id": 5, "title": "Build driver consistency analyzer", "status": "done"},
+        {"id": 6, "title": "Build teammate battle comparison", "status": "done"},
+        {"id": 7, "title": "Create CLI for F1 data analysis", "status": "done"}
+      ]
+    }
+  ],
+  "metadata": {
+    "projectName": "The Winning Formula",
+    "version": "1.0",
+    "createdAt": "2026-01-13",
+    "phase": "Phase 1 - Beehiiv-First",
+    "timeHorizon": "90 days",
+    "exitCriteria": {
+      "subscribers": "500+",
+      "clearDemandForTools": true,
+      "strongPerformanceInOnePillar": true
+    }
+  }
+}

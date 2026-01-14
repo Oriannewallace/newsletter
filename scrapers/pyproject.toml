@@ -1,0 +1,20 @@
+[project]
+name = "newsletter-data-tools"
+version = "0.1.0"
+description = "Data tools for The Winning Formula newsletter"
+requires-python = ">=3.11"
+dependencies = [
+    "playwright>=1.40.0",
+    "pandas>=2.0.0",
+    "fastf1>=3.3.0",
+    "matplotlib>=3.8.0",
+]
+
+[project.scripts]
+scrape = "property24_scraper:main"
+analyze = "suburb_analyzer:main"
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=7.0.0",
+]
