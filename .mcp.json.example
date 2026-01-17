@@ -12,8 +12,8 @@
         "/Users/oriannewallace/Desktop/Visual Studio Projects/newsletter/beehiiv-mcp-server/beehiiv_server.py"
       ],
       "env": {
-        "BEEHIIV_API_KEY": "gMda9Yyl97X2oswzK6kxhFrEZm5Mo5j9pBmPugQennFcVGYciYiZjbPaXNwvjssK",
-        "BEEHIIV_PUBLICATION_ID": "pub_a61159ea-66b3-4602-82f5-b969c9b09628"
+        "BEEHIIV_API_KEY": "YOUR_BEEHIIV_API_KEY_HERE",
+        "BEEHIIV_PUBLICATION_ID": "YOUR_PUBLICATION_ID_HERE"
       }
     },
     "nanobanana": {
@@ -30,7 +30,7 @@
         "/Users/oriannewallace/Desktop/Visual Studio Projects/newsletter/nano-banana-mcp-server/nanobanana_server.py"
       ],
       "env": {
-        "GOOGLE_API_KEY": "AIzaSyCFGpBg2ig__XMUsrE1aArp7u1W2f60FaA"
+        "GOOGLE_API_KEY": "YOUR_GOOGLE_API_KEY_HERE"
       }
     }
   }
