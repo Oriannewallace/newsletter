@@ -49,6 +49,7 @@
             border-radius: 12px;
             overflow: hidden;
             margin-bottom: 20px;
+            cursor: pointer;
         }
 
         .display video,
@@ -93,6 +94,170 @@
             font-weight: 700;
             color: #FF8000;
             transition: color 0.3s ease;
+        }
+
+        /* Info Card - Glassmorphism */
+        .info-card {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 280px;
+            background: rgba(20, 20, 20, 0.85);
+            backdrop-filter: blur(20px);
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 16px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+            opacity: 0;
+            transform: translateX(20px);
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
+        .info-card.visible {
+            opacity: 1;
+            transform: translateX(0);
+            pointer-events: auto;
+        }
+
+        .info-section {
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .info-section:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .info-title {
+            font-size: 11px;
+            font-weight: 600;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0 0 8px 0;
+        }
+
+        .spec-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .spec-item {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .spec-label {
+            font-size: 10px;
+            color: #666;
+        }
+
+        .spec-value {
+            font-size: 13px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .impact-stats {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .impact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .impact-before {
+            font-size: 20px;
+            font-weight: 700;
+            color: #FF8000;
+        }
+
+        .impact-arrow {
+            font-size: 16px;
+            color: #47C7FC;
+        }
+
+        .impact-after {
+            font-size: 20px;
+            font-weight: 700;
+            color: #FFD700;
+        }
+
+        .impact-label {
+            font-size: 11px;
+            color: #888;
+        }
+
+        .journey-track {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+        }
+
+        .journey-dot {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .journey-pos {
+            font-size: 12px;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .journey-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 10px;
+            color: #666;
+        }
+
+        .upgrade-detail {
+            font-size: 12px;
+            color: #aaa;
+            margin: 0 0 8px 0;
+            line-height: 1.4;
+        }
+
+        .position-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .hover-hint {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: rgba(0,0,0,0.6);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 11px;
+            color: #888;
+            transition: opacity 0.3s ease;
+        }
+
+        .hover-hint.hidden {
+            opacity: 0;
         }
 
         .controls {
@@ -169,6 +334,10 @@
             .title {
                 font-size: 22px;
             }
+            .info-card {
+                width: 240px;
+                padding: 12px;
+            }
         }
     </style>
 </head>
@@ -179,20 +348,86 @@
             <p class="subtitle">How upgrades won the 2024 championship</p>
         </div>
 
-        <div class="display">
-            <!-- Replace these src URLs with your generated assets -->
-            <video id="mainVideo" autoplay loop muted playsinline>
-                <source src="YOUR_VEO3_VIDEO.mp4" type="video/mp4">
+        <div class="display" id="displayArea">
+            <!-- Video (hidden by default) -->
+            <video id="mainVideo" autoplay loop muted playsinline style="display: none;">
+                <source src="assets/f1_mclaren_rotating_20260114_104205.mp4" type="video/mp4">
             </video>
 
-            <!-- Or use images instead -->
-            <img id="img1" class="active" src="YOUR_IMAGE_PRE_MIAMI.png" alt="Pre-Miami Spec">
-            <img id="img2" src="YOUR_IMAGE_MIAMI.png" alt="Miami Upgrade">
-            <img id="img3" src="YOUR_IMAGE_FINAL.png" alt="Final Spec">
+            <!-- Stage images -->
+            <img id="img1" class="active" src="assets/mclaren_stage1_pre_miami.png" alt="Pre-Miami Spec">
+            <img id="img2" src="assets/mclaren_stage2_miami_upgrade.png" alt="Miami Upgrade">
+            <img id="img3" src="assets/mclaren_stage3_championship.png" alt="Final Spec">
 
             <div class="stats-overlay">
                 <span class="stats-label" id="roundsLabel">Rounds 1-5</span>
                 <span class="stats-value" id="statsValue">19.2 pts/race</span>
+            </div>
+
+            <!-- Hover hint -->
+            <div class="hover-hint" id="hoverHint">Hover for specs</div>
+
+            <!-- Info Card -->
+            <div class="info-card" id="infoCard">
+                <!-- Specs Section -->
+                <div class="info-section">
+                    <h4 class="info-title">Technical Specs</h4>
+                    <div class="spec-grid">
+                        <div class="spec-item">
+                            <span class="spec-label">Power Unit</span>
+                            <span class="spec-value">Mercedes M15</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Drivers</span>
+                            <span class="spec-value">NOR / PIA</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Weight</span>
+                            <span class="spec-value">798 kg</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Suspension</span>
+                            <span class="spec-value">Push/Pull</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Upgrade Impact -->
+                <div class="info-section">
+                    <h4 class="info-title">Miami Upgrade Impact</h4>
+                    <div class="impact-stats">
+                        <div class="impact-item">
+                            <span class="impact-before">19.2</span>
+                            <span class="impact-arrow">→</span>
+                            <span class="impact-after">31.1</span>
+                        </div>
+                        <span class="impact-label">pts/race average</span>
+                    </div>
+                </div>
+
+                <!-- Championship Journey -->
+                <div class="info-section">
+                    <h4 class="info-title">Championship Journey</h4>
+                    <div class="journey-track">
+                        <div class="journey-dot" style="background: #666;"><span class="journey-pos">4</span></div>
+                        <div class="journey-dot" style="background: #666;"><span class="journey-pos">4</span></div>
+                        <div class="journey-dot" style="background: #FF8000;"><span class="journey-pos">3</span></div>
+                        <div class="journey-dot" style="background: #47C7FC;"><span class="journey-pos">2</span></div>
+                        <div class="journey-dot" style="background: #FFD700;"><span class="journey-pos">1</span></div>
+                        <div class="journey-dot" style="background: #FFD700;"><span class="journey-pos">1</span></div>
+                    </div>
+                    <div class="journey-labels">
+                        <span>Bahrain</span>
+                        <span>Abu Dhabi</span>
+                    </div>
+                </div>
+
+                <!-- Current Stage -->
+                <div class="info-section">
+                    <h4 class="info-title" id="stageTitle" style="color: #FF8000;">Pre-Miami</h4>
+                    <p class="upgrade-detail" id="upgradeDetail">Standard 2024 launch specification</p>
+                    <span class="position-badge" id="positionBadge" style="background: #FF8000;">4th in standings</span>
+                </div>
             </div>
         </div>
 
@@ -220,10 +455,33 @@
 
     <script>
         const stageData = {
-            1: { rounds: "Rounds 1-5", stats: "19.2 pts/race", color: "#FF8000" },
-            2: { rounds: "Round 6+", stats: "+0.5s per lap", color: "#47C7FC" },
-            3: { rounds: "Round 24", stats: "31.1 pts/race", color: "#FFD700" }
+            1: {
+                rounds: "Rounds 1-5",
+                stats: "19.2 pts/race",
+                color: "#FF8000",
+                title: "Pre-Miami",
+                detail: "Standard 2024 launch specification",
+                position: "4th in standings"
+            },
+            2: {
+                rounds: "Round 6+",
+                stats: "+0.5s per lap",
+                color: "#47C7FC",
+                title: "Miami Upgrade",
+                detail: "Revolutionary sidepod undercut, new floor edges, tighter coke-bottle",
+                position: "Jumped to 3rd"
+            },
+            3: {
+                rounds: "Round 24",
+                stats: "31.1 pts/race",
+                color: "#FFD700",
+                title: "Championship Spec",
+                detail: "Optimized aero package, 666 total points",
+                position: "Champions!"
+            }
         };
+
+        let infoCardVisible = false;
 
         function setStage(stage) {
             // Update buttons
@@ -244,6 +502,13 @@
             document.getElementById('statsValue').textContent = data.stats;
             document.getElementById('statsValue').style.color = data.color;
 
+            // Update info card current stage section
+            document.getElementById('stageTitle').textContent = data.title;
+            document.getElementById('stageTitle').style.color = data.color;
+            document.getElementById('upgradeDetail').textContent = data.detail;
+            document.getElementById('positionBadge').textContent = data.position;
+            document.getElementById('positionBadge').style.background = data.color;
+
             // Update progress bar
             document.querySelectorAll('.progress-segment').forEach((seg, index) => {
                 if (index < stage) {
@@ -253,6 +518,36 @@
                 }
             });
         }
+
+        // Hover/tap functionality for info card
+        const displayArea = document.getElementById('displayArea');
+        const infoCard = document.getElementById('infoCard');
+        const hoverHint = document.getElementById('hoverHint');
+
+        displayArea.addEventListener('mouseenter', () => {
+            infoCard.classList.add('visible');
+            hoverHint.classList.add('hidden');
+        });
+
+        displayArea.addEventListener('mouseleave', () => {
+            infoCard.classList.remove('visible');
+            hoverHint.classList.remove('hidden');
+        });
+
+        // Mobile tap toggle
+        displayArea.addEventListener('click', (e) => {
+            // Don't toggle if clicking on the info card itself
+            if (e.target.closest('.info-card')) return;
+
+            infoCardVisible = !infoCardVisible;
+            if (infoCardVisible) {
+                infoCard.classList.add('visible');
+                hoverHint.classList.add('hidden');
+            } else {
+                infoCard.classList.remove('visible');
+                hoverHint.classList.remove('hidden');
+            }
+        });
     </script>
 </body>
 </html>

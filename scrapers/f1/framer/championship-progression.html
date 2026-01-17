@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2024 F1 Constructors Championship - McLaren's Rise</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0a0a;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .chart-container {
+            font-family: system-ui, -apple-system, sans-serif;
+            background: linear-gradient(180deg, #111 0%, #0a0a0a 100%);
+            border-radius: 20px;
+            padding: 32px;
+            max-width: 900px;
+            width: 100%;
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .title {
+            font-size: 28px;
+            font-weight: 700;
+            background: linear-gradient(90deg, #FF8000, #FFD700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: #888;
+        }
+
+        .chart-area {
+            position: relative;
+            height: 400px;
+            margin-bottom: 24px;
+        }
+
+        /* Y-axis labels (positions) */
+        .y-axis {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 40px;
+            width: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .y-label {
+            font-size: 14px;
+            font-weight: 700;
+            color: #666;
+            text-align: right;
+            padding-right: 8px;
+        }
+
+        .y-label.pos-1 { color: #FFD700; }
+        .y-label.pos-2 { color: #C0C0C0; }
+        .y-label.pos-3 { color: #CD7F32; }
+
+        /* Chart grid */
+        .chart-grid {
+            position: absolute;
+            left: 40px;
+            right: 0;
+            top: 0;
+            bottom: 40px;
+            border-left: 1px solid #333;
+            border-bottom: 1px solid #333;
+        }
+
+        .grid-line {
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: rgba(255,255,255,0.05);
+        }
+
+        /* SVG Chart */
+        .chart-svg {
+            position: absolute;
+            left: 40px;
+            right: 0;
+            top: 0;
+            bottom: 40px;
+        }
+
+        /* Team lines */
+        .team-line {
+            fill: none;
+            stroke-width: 3;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .team-line.mclaren {
+            stroke: #FF8000;
+            filter: drop-shadow(0 0 8px rgba(255, 128, 0, 0.5));
+        }
+
+        .team-line.redbull {
+            stroke: #3671C6;
+        }
+
+        .team-line.ferrari {
+            stroke: #E8002D;
+        }
+
+        .team-line.mercedes {
+            stroke: #27F4D2;
+        }
+
+        /* Animation */
+        .team-line {
+            stroke-dasharray: 2000;
+            stroke-dashoffset: 2000;
+            animation: drawLine 3s ease-out forwards;
+        }
+
+        .team-line.mclaren { animation-delay: 0.5s; }
+        .team-line.redbull { animation-delay: 0s; }
+        .team-line.ferrari { animation-delay: 0.25s; }
+        .team-line.mercedes { animation-delay: 0.4s; }
+
+        @keyframes drawLine {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        /* Data points */
+        .data-point {
+            fill: #0a0a0a;
+            stroke-width: 2;
+            opacity: 0;
+            animation: fadeIn 0.3s ease-out forwards;
+        }
+
+        .data-point.mclaren { stroke: #FF8000; animation-delay: 3.5s; }
+        .data-point.redbull { stroke: #3671C6; animation-delay: 3s; }
+        .data-point.ferrari { stroke: #E8002D; animation-delay: 3.2s; }
+        .data-point.mercedes { stroke: #27F4D2; animation-delay: 3.4s; }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        /* Milestone markers */
+        .milestone {
+            position: absolute;
+            bottom: 50px;
+            transform: translateX(-50%);
+            opacity: 0;
+            animation: fadeInUp 0.5s ease-out forwards;
+        }
+
+        .milestone-line {
+            width: 2px;
+            height: 0;
+            background: linear-gradient(180deg, rgba(255,128,0,0.8), transparent);
+            margin: 0 auto 8px;
+            animation: growLine 0.5s ease-out forwards;
+        }
+
+        @keyframes growLine {
+            to { height: 280px; }
+        }
+
+        .milestone-label {
+            background: rgba(255, 128, 0, 0.2);
+            border: 1px solid #FF8000;
+            border-radius: 8px;
+            padding: 8px 12px;
+            font-size: 11px;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .milestone-title {
+            font-weight: 700;
+            color: #FF8000;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .milestone-desc {
+            color: #888;
+            font-size: 10px;
+        }
+
+        .milestone.miami { left: calc(40px + (5/23) * (100% - 40px)); animation-delay: 3.8s; }
+        .milestone.hungary { left: calc(40px + (12/23) * (100% - 40px)); animation-delay: 4.2s; }
+        .milestone.abudhabi { left: calc(40px + (23/23) * (100% - 40px) - 20px); animation-delay: 4.6s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateX(-50%) translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0);
+            }
+        }
+
+        /* X-axis labels */
+        .x-axis {
+            position: absolute;
+            left: 40px;
+            right: 0;
+            bottom: 0;
+            height: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding-top: 8px;
+        }
+
+        .x-label {
+            font-size: 10px;
+            color: #666;
+            text-align: center;
+            width: 30px;
+        }
+
+        .x-label.highlight {
+            color: #FF8000;
+            font-weight: 600;
+        }
+
+        /* Legend */
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .legend-color {
+            width: 24px;
+            height: 4px;
+            border-radius: 2px;
+        }
+
+        .legend-color.mclaren { background: #FF8000; box-shadow: 0 0 8px rgba(255,128,0,0.5); }
+        .legend-color.redbull { background: #3671C6; }
+        .legend-color.ferrari { background: #E8002D; }
+        .legend-color.mercedes { background: #27F4D2; }
+
+        .legend-text {
+            font-size: 12px;
+            color: #aaa;
+        }
+
+        .legend-text.mclaren {
+            color: #FF8000;
+            font-weight: 600;
+        }
+
+        /* Stats cards */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .stat-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .stat-card.highlight {
+            background: rgba(255, 128, 0, 0.1);
+            border-color: rgba(255, 128, 0, 0.3);
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .stat-card.highlight .stat-value {
+            color: #FFD700;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Replay button */
+        .replay-btn {
+            display: block;
+            margin: 24px auto 0;
+            padding: 12px 24px;
+            background: #1a1a1a;
+            border: 1px solid #FF8000;
+            border-radius: 8px;
+            color: #FF8000;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .replay-btn:hover {
+            background: #FF8000;
+            color: #000;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .chart-area {
+                height: 300px;
+            }
+            .stats-row {
+                grid-template-columns: 1fr;
+            }
+            .legend {
+                gap: 12px;
+            }
+            .title {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="chart-container">
+        <div class="header">
+            <h1 class="title">The Underdog to Champion</h1>
+            <p class="subtitle">McLaren's 2024 Constructors Championship Journey</p>
+        </div>
+
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color mclaren"></div>
+                <span class="legend-text mclaren">McLaren</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color redbull"></div>
+                <span class="legend-text">Red Bull</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color ferrari"></div>
+                <span class="legend-text">Ferrari</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color mercedes"></div>
+                <span class="legend-text">Mercedes</span>
+            </div>
+        </div>
+
+        <div class="chart-area">
+            <!-- Y-axis -->
+            <div class="y-axis">
+                <div class="y-label pos-1">1st</div>
+                <div class="y-label pos-2">2nd</div>
+                <div class="y-label pos-3">3rd</div>
+                <div class="y-label">4th</div>
+            </div>
+
+            <!-- Chart grid -->
+            <div class="chart-grid">
+                <div class="grid-line" style="top: 0%;"></div>
+                <div class="grid-line" style="top: 33.33%;"></div>
+                <div class="grid-line" style="top: 66.66%;"></div>
+            </div>
+
+            <!-- SVG Chart Lines -->
+            <svg class="chart-svg" viewBox="0 0 860 320" preserveAspectRatio="none">
+                <!-- Red Bull - Started 1st, dropped to 2nd, finished 3rd -->
+                <polyline class="team-line redbull" points="
+                    0,0
+                    37,0
+                    75,0
+                    112,0
+                    150,0
+                    187,0
+                    225,0
+                    262,107
+                    300,107
+                    337,107
+                    375,107
+                    412,107
+                    450,107
+                    487,107
+                    525,107
+                    562,107
+                    600,107
+                    637,213
+                    675,213
+                    712,213
+                    750,213
+                    787,213
+                    825,213
+                    860,213
+                "/>
+
+                <!-- Ferrari - Started 2nd, fluctuated, finished 2nd -->
+                <polyline class="team-line ferrari" points="
+                    0,107
+                    37,107
+                    75,107
+                    112,107
+                    150,107
+                    187,107
+                    225,107
+                    262,0
+                    300,0
+                    337,0
+                    375,0
+                    412,0
+                    450,107
+                    487,107
+                    525,107
+                    562,107
+                    600,107
+                    637,107
+                    675,107
+                    712,107
+                    750,107
+                    787,107
+                    825,107
+                    860,107
+                "/>
+
+                <!-- Mercedes - Started 4th, improved to 4th finish -->
+                <polyline class="team-line mercedes" points="
+                    0,320
+                    37,320
+                    75,320
+                    112,320
+                    150,320
+                    187,320
+                    225,320
+                    262,320
+                    300,213
+                    337,213
+                    375,213
+                    412,213
+                    450,213
+                    487,213
+                    525,213
+                    562,213
+                    600,213
+                    637,320
+                    675,320
+                    712,320
+                    750,320
+                    787,320
+                    825,320
+                    860,320
+                "/>
+
+                <!-- McLaren - THE HERO: 4th → 3rd → 2nd → 1st → CHAMPIONS -->
+                <polyline class="team-line mclaren" points="
+                    0,213
+                    37,213
+                    75,213
+                    112,213
+                    150,213
+                    187,213
+                    225,107
+                    262,213
+                    300,107
+                    337,107
+                    375,107
+                    412,107
+                    450,0
+                    487,0
+                    525,0
+                    562,0
+                    600,0
+                    637,0
+                    675,0
+                    712,0
+                    750,0
+                    787,0
+                    825,0
+                    860,0
+                "/>
+
+                <!-- End points -->
+                <circle class="data-point redbull" cx="860" cy="213" r="6"/>
+                <circle class="data-point ferrari" cx="860" cy="107" r="6"/>
+                <circle class="data-point mercedes" cx="860" cy="320" r="6"/>
+                <circle class="data-point mclaren" cx="860" cy="0" r="8"/>
+            </svg>
+
+            <!-- Milestone markers -->
+            <div class="milestone miami">
+                <div class="milestone-line"></div>
+                <div class="milestone-label">
+                    <span class="milestone-title">Miami Upgrade</span>
+                    <span class="milestone-desc">+0.5s per lap</span>
+                </div>
+            </div>
+
+            <div class="milestone hungary">
+                <div class="milestone-line"></div>
+                <div class="milestone-label">
+                    <span class="milestone-title">Takes P1</span>
+                    <span class="milestone-desc">Hungary GP</span>
+                </div>
+            </div>
+
+            <div class="milestone abudhabi">
+                <div class="milestone-line"></div>
+                <div class="milestone-label">
+                    <span class="milestone-title">CHAMPIONS</span>
+                    <span class="milestone-desc">666 Points</span>
+                </div>
+            </div>
+
+            <!-- X-axis -->
+            <div class="x-axis">
+                <span class="x-label">BHR</span>
+                <span class="x-label">SAU</span>
+                <span class="x-label">AUS</span>
+                <span class="x-label">JPN</span>
+                <span class="x-label">CHN</span>
+                <span class="x-label highlight">MIA</span>
+                <span class="x-label">EMI</span>
+                <span class="x-label">MON</span>
+                <span class="x-label">CAN</span>
+                <span class="x-label">ESP</span>
+                <span class="x-label">AUT</span>
+                <span class="x-label">GBR</span>
+                <span class="x-label highlight">HUN</span>
+                <span class="x-label">BEL</span>
+                <span class="x-label">NED</span>
+                <span class="x-label">ITA</span>
+                <span class="x-label">AZE</span>
+                <span class="x-label">SIN</span>
+                <span class="x-label">USA</span>
+                <span class="x-label">MEX</span>
+                <span class="x-label">BRA</span>
+                <span class="x-label">LAS</span>
+                <span class="x-label">QAT</span>
+                <span class="x-label highlight">ABU</span>
+            </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats-row">
+            <div class="stat-card">
+                <div class="stat-value">4th → 1st</div>
+                <div class="stat-label">Position Change</div>
+            </div>
+            <div class="stat-card highlight">
+                <div class="stat-value">+62%</div>
+                <div class="stat-label">Points Improvement</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">666</div>
+                <div class="stat-label">Total Points</div>
+            </div>
+        </div>
+
+        <button class="replay-btn" onclick="replayAnimation()">
+            Replay Animation
+        </button>
+    </div>
+
+    <script>
+        function replayAnimation() {
+            // Remove and re-add elements to restart animation
+            const container = document.querySelector('.chart-container');
+            const html = container.innerHTML;
+            container.innerHTML = '';
+
+            // Force reflow
+            void container.offsetWidth;
+
+            container.innerHTML = html;
+        }
+    </script>
+</body>
+</html>

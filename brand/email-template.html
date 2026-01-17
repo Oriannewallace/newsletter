@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Winning Formula - Email Template</title>
+  <!--
+    THE WINNING FORMULA - Email Template
+    Use this as a reference for Beehiiv email styling.
+    Copy relevant CSS values into Beehiiv's custom CSS settings.
+  -->
+  <style>
+    /* ============================================
+       BRAND COLORS
+       ============================================ */
+    :root {
+      --deep-navy: #1E3A5F;
+      --light-navy: #2D4A6F;
+      --papaya-orange: #FF8000;
+      --soft-orange: #FFB366;
+      --white: #FFFFFF;
+      --slate-gray: #64748B;
+
+      /* Pillar accents */
+      --f1-accent: #FF8000;
+      --property-accent: #0D9488;
+      --skincare-accent: #F472B6;
+      --tech-accent: #3B82F6;
+    }
+
+    /* ============================================
+       BASE STYLES
+       ============================================ */
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #1E3A5F;
+      font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: #FFFFFF;
+      line-height: 1.6;
+    }
+
+    .email-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #1E3A5F;
+    }
+
+    /* ============================================
+       HEADER
+       ============================================ */
+    .header {
+      background-color: #1E3A5F;
+      padding: 32px 24px;
+      text-align: center;
+      border-bottom: 1px solid #2D4A6F;
+    }
+
+    .logo {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 16px;
+    }
+
+    .header-title {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      margin: 0 0 8px 0;
+      color: #FFFFFF;
+    }
+
+    .header-tagline {
+      font-size: 14px;
+      color: #64748B;
+      margin: 0;
+    }
+
+    .pillar-tag {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 16px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 16px;
+    }
+
+    .pillar-tag.f1 { background-color: #FF8000; color: #FFFFFF; }
+    .pillar-tag.property { background-color: #0D9488; color: #FFFFFF; }
+    .pillar-tag.skincare { background-color: #F472B6; color: #FFFFFF; }
+    .pillar-tag.tech { background-color: #3B82F6; color: #FFFFFF; }
+
+    /* ============================================
+       CONTENT
+       ============================================ */
+    .content {
+      padding: 32px 24px;
+    }
+
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin: 0 0 24px 0;
+      color: #FFFFFF;
+    }
+
+    h2 {
+      font-size: 22px;
+      font-weight: 600;
+      line-height: 1.3;
+      margin: 32px 0 16px 0;
+      color: #FFFFFF;
+    }
+
+    h3 {
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 1.4;
+      margin: 24px 0 12px 0;
+      color: #FFFFFF;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.6;
+      margin: 0 0 16px 0;
+      color: #FFFFFF;
+    }
+
+    a {
+      color: #FF8000;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #FFB366;
+      text-decoration: underline;
+    }
+
+    /* ============================================
+       SPECIAL ELEMENTS
+       ============================================ */
+    .highlight-box {
+      background-color: #2D4A6F;
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin: 24px 0;
+      border-left: 4px solid #FF8000;
+    }
+
+    .highlight-box.property { border-left-color: #0D9488; }
+    .highlight-box.skincare { border-left-color: #F472B6; }
+    .highlight-box.tech { border-left-color: #3B82F6; }
+
+    .data-point {
+      font-family: 'JetBrains Mono', 'SF Mono', 'Courier New', monospace;
+      background-color: #2D4A6F;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 14px;
+      color: #FF8000;
+    }
+
+    blockquote {
+      margin: 24px 0;
+      padding: 16px 24px;
+      border-left: 4px solid #FF8000;
+      background-color: #2D4A6F;
+      border-radius: 0 8px 8px 0;
+      font-style: italic;
+    }
+
+    blockquote p {
+      margin: 0;
+      color: #FFFFFF;
+    }
+
+    /* ============================================
+       LISTS
+       ============================================ */
+    ul, ol {
+      padding-left: 24px;
+      margin: 16px 0;
+    }
+
+    li {
+      margin-bottom: 8px;
+      color: #FFFFFF;
+    }
+
+    /* ============================================
+       IMAGES & DATA VIZ
+       ============================================ */
+    .image-container {
+      margin: 24px 0;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .image-container img {
+      width: 100%;
+      display: block;
+    }
+
+    .image-caption {
+      font-size: 14px;
+      color: #64748B;
+      text-align: center;
+      padding: 12px;
+      background-color: #2D4A6F;
+    }
+
+    /* ============================================
+       CTA BUTTONS
+       ============================================ */
+    .cta-button {
+      display: inline-block;
+      background-color: #FF8000;
+      color: #FFFFFF !important;
+      padding: 14px 28px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 16px;
+      text-decoration: none;
+      margin: 16px 0;
+    }
+
+    .cta-button:hover {
+      background-color: #FFB366;
+      text-decoration: none;
+    }
+
+    .cta-button.secondary {
+      background-color: #2D4A6F;
+      border: 2px solid #FF8000;
+    }
+
+    /* ============================================
+       DIVIDER
+       ============================================ */
+    .divider {
+      border: none;
+      border-top: 1px solid #2D4A6F;
+      margin: 32px 0;
+    }
+
+    /* ============================================
+       FOOTER
+       ============================================ */
+    .footer {
+      background-color: #2D4A6F;
+      padding: 32px 24px;
+      text-align: center;
+    }
+
+    .footer-tagline {
+      font-size: 14px;
+      color: #64748B;
+      font-style: italic;
+      margin: 0 0 24px 0;
+    }
+
+    .social-links {
+      margin: 24px 0;
+    }
+
+    .social-links a {
+      display: inline-block;
+      margin: 0 12px;
+      color: #FFFFFF;
+      font-size: 14px;
+    }
+
+    .footer-links {
+      margin-top: 24px;
+      font-size: 12px;
+    }
+
+    .footer-links a {
+      color: #64748B;
+      margin: 0 8px;
+    }
+
+    .unsubscribe {
+      font-size: 12px;
+      color: #64748B;
+      margin-top: 16px;
+    }
+
+    .unsubscribe a {
+      color: #64748B;
+    }
+  </style>
+</head>
+<body>
+  <div class="email-container">
+
+    <!-- HEADER -->
+    <div class="header">
+      <!-- Logo placeholder - use actual hosted image URL -->
+      <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #1E3A5F, #2D4A6F); border-radius: 12px; margin: 0 auto 16px; display: flex; align-items: center; justify-content: center; border: 2px solid #FF8000;">
+        <span style="color: #FF8000; font-weight: 700; font-size: 20px;">OW</span>
+      </div>
+      <h1 class="header-title">THE WINNING FORMULA</h1>
+      <p class="header-tagline">Data-driven thinking for F1, property, skincare, and life.</p>
+
+      <!-- Change class to: f1, property, skincare, or tech -->
+      <span class="pillar-tag f1">F1 & Performance</span>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content">
+
+      <!-- Issue Title -->
+      <h1>Why This Upgrade Mattered More Than Pole Position</h1>
+
+      <!-- Opening hook -->
+      <p>I noticed something weird in last week's F1 data...</p>
+
+      <p>McLaren went from <span class="data-point">4th place</span> in Bahrain to <span class="data-point">World Champions</span> by Abu Dhabi. The turning point? A single upgrade package in Miami.</p>
+
+      <hr class="divider">
+
+      <!-- Section -->
+      <h2>The Data That Changed Everything</h2>
+
+      <p>Here's what the numbers actually show:</p>
+
+      <div class="highlight-box">
+        <p><strong>Pre-Miami average:</strong> 19.2 points per race</p>
+        <p><strong>Post-Miami average:</strong> 31.1 points per race</p>
+        <p><strong>Improvement:</strong> +62% performance jump</p>
+      </div>
+
+      <p>This wasn't just about going faster. The upgrade fundamentally changed how the car handled in dirty air, making overtakes possible where they weren't before.</p>
+
+      <!-- Image example -->
+      <div class="image-container">
+        <img src="https://via.placeholder.com/552x300/2D4A6F/FF8000?text=Championship+Progression+Chart" alt="Championship progression showing McLaren's rise">
+        <p class="image-caption">McLaren's championship position throughout the 2024 season</p>
+      </div>
+
+      <!-- Quote -->
+      <blockquote>
+        <p>"The winning formula isn't about being fastest on Saturday - it's about consistent points on Sunday."</p>
+      </blockquote>
+
+      <h2>What This Means For You</h2>
+
+      <p>Whether you're analyzing F1 data or property yields, the lesson is the same:</p>
+
+      <ul>
+        <li><strong>Surface metrics lie</strong> - Pole positions don't equal championships</li>
+        <li><strong>Marginal gains compound</strong> - Small improvements add up over a season</li>
+        <li><strong>Timing matters</strong> - The right upgrade at the right moment changes everything</li>
+      </ul>
+
+      <hr class="divider">
+
+      <!-- CTA Section -->
+      <h2>Want The Full Analysis?</h2>
+
+      <p>I built an interactive visualization showing McLaren's evolution through the 2024 season. See exactly how the car changed from pre-Miami to championship-winning spec.</p>
+
+      <p style="text-align: center;">
+        <a href="#" class="cta-button">View Interactive F1 Evolution</a>
+      </p>
+
+      <hr class="divider">
+
+      <!-- Closing -->
+      <p><strong>What do you want me to analyze next?</strong> Reply to this email - I read every response.</p>
+
+      <p>Until next time,<br>
+      <strong>Orianne</strong></p>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <p class="footer-tagline">"I'm trying to find the winning formula."</p>
+
+      <div class="social-links">
+        <a href="#">Twitter</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">GitHub</a>
+      </div>
+
+      <div class="footer-links">
+        <a href="#">View in browser</a> |
+        <a href="#">Past issues</a> |
+        <a href="#">Share</a>
+      </div>
+
+      <p class="unsubscribe">
+        <a href="#">Unsubscribe</a> | <a href="#">Update preferences</a>
+      </p>
+    </div>
+
+  </div>
+</body>
+</html>

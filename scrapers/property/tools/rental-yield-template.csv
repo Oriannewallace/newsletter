@@ -1,0 +1,43 @@
+RENTAL YIELD CALCULATOR,,
+The Winning Formula - Data-driven property decisions,,
+,,
+PROPERTY DETAILS,,
+Purchase Price,1500000,
+Monthly Rent,12000,
+,,
+MONTHLY EXPENSES,,
+Rates & Taxes,1500,
+Levies (Body Corporate),2000,
+Insurance,500,
+Maintenance Reserve,600,
+Vacancy Allowance %,5,
+,,
+CALCULATED RESULTS,,Formula
+Annual Rent,,=B6*12
+Annual Expenses,,=(B9+B10+B11+B12)*12
+Vacancy Cost,,=C15*B13/100
+Net Annual Income,,=C15-C16-C17
+Monthly Cash Flow,,=C18/12
+,,
+YIELDS,,
+Gross Yield,,=C15/B5
+Net Yield,,=C18/B5
+Rating,,=IF(C22>=0.08,"GOOD",IF(C22>=0.05,"OKAY","POOR"))
+,,
+,,
+PROPERTY COMPARISON TABLE,,,,,,
+Name,Purchase Price,Monthly Rent,Annual Expenses,Gross Yield,Net Yield,Rating
+Property 1,1500000,12000,55200,=C28*12/B28,(C28*12-D28)/B28,=IF(F28>=0.08,"GOOD",IF(F28>=0.05,"OKAY","POOR"))
+Property 2,2000000,15000,72000,=C29*12/B29,(C29*12-D29)/B29,=IF(F29>=0.08,"GOOD",IF(F29>=0.05,"OKAY","POOR"))
+Property 3,1200000,10000,48000,=C30*12/B30,(C30*12-D30)/B30,=IF(F30>=0.08,"GOOD",IF(F30>=0.05,"OKAY","POOR"))
+Property 4,,,,,,
+Property 5,,,,,,
+,,
+,,
+CAPE TOWN BENCHMARKS (2025),,,,
+Area,Typical Price,Typical Rent,Expected Yield,,
+Sea Point,2500000,18000,7%,,
+Observatory,1500000,12000,8%,,
+Woodstock,1800000,14000,8%,,
+CBD,1200000,10000,9%,,
+Bellville,1000000,9000,10%,,

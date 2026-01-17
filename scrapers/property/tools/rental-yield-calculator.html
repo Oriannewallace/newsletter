@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rental Yield Calculator | The Winning Formula</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0a0a;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 40px 20px;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        .calculator-container {
+            background: linear-gradient(180deg, #111 0%, #0a0a0a 100%);
+            border-radius: 20px;
+            padding: 32px;
+            max-width: 900px;
+            width: 100%;
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .title {
+            font-size: 28px;
+            font-weight: 700;
+            background: linear-gradient(90deg, #4CAF50, #8BC34A);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: #888;
+        }
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+
+        @media (max-width: 700px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .input-section {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 24px;
+        }
+
+        .section-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #4CAF50;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 16px;
+            background: #4CAF50;
+            border-radius: 2px;
+        }
+
+        .input-group {
+            margin-bottom: 16px;
+        }
+
+        .input-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .input-label {
+            display: block;
+            font-size: 12px;
+            color: #888;
+            margin-bottom: 6px;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .currency-prefix {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #666;
+            font-size: 14px;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 12px 12px 12px 36px;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+
+        .input-field::placeholder {
+            color: #555;
+        }
+
+        .percent-suffix {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #666;
+            font-size: 14px;
+        }
+
+        .input-field.with-percent {
+            padding-right: 36px;
+            padding-left: 12px;
+        }
+
+        /* Results Section */
+        .results-section {
+            background: rgba(76, 175, 80, 0.1);
+            border: 1px solid rgba(76, 175, 80, 0.3);
+            border-radius: 16px;
+            padding: 24px;
+        }
+
+        .result-card {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 12px;
+            margin-bottom: 16px;
+        }
+
+        .result-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .result-card.highlight {
+            background: rgba(76, 175, 80, 0.2);
+            border: 1px solid rgba(76, 175, 80, 0.4);
+        }
+
+        .result-label {
+            font-size: 11px;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .result-value {
+            font-size: 36px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .result-value.positive {
+            color: #4CAF50;
+        }
+
+        .result-value.warning {
+            color: #FFC107;
+        }
+
+        .result-value.negative {
+            color: #f44336;
+        }
+
+        .result-subtext {
+            font-size: 12px;
+            color: #666;
+            margin-top: 4px;
+        }
+
+        /* Breakdown */
+        .breakdown {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .breakdown-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            font-size: 13px;
+        }
+
+        .breakdown-label {
+            color: #888;
+        }
+
+        .breakdown-value {
+            color: #fff;
+            font-weight: 500;
+        }
+
+        .breakdown-value.expense {
+            color: #f44336;
+        }
+
+        /* Comparison Section */
+        .comparison-section {
+            margin-top: 32px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .comparison-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .comparison-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .add-property-btn {
+            padding: 8px 16px;
+            background: #1a1a1a;
+            border: 1px solid #4CAF50;
+            border-radius: 8px;
+            color: #4CAF50;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .add-property-btn:hover {
+            background: #4CAF50;
+            color: #000;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .comparison-table th {
+            text-align: left;
+            padding: 12px;
+            font-size: 11px;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .comparison-table td {
+            padding: 12px;
+            font-size: 14px;
+            color: #fff;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .comparison-table tr:hover td {
+            background: rgba(255,255,255,0.02);
+        }
+
+        .yield-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .yield-badge.good {
+            background: rgba(76, 175, 80, 0.2);
+            color: #4CAF50;
+        }
+
+        .yield-badge.okay {
+            background: rgba(255, 193, 7, 0.2);
+            color: #FFC107;
+        }
+
+        .yield-badge.poor {
+            background: rgba(244, 67, 54, 0.2);
+            color: #f44336;
+        }
+
+        .remove-btn {
+            background: none;
+            border: none;
+            color: #666;
+            cursor: pointer;
+            font-size: 16px;
+            padding: 4px;
+        }
+
+        .remove-btn:hover {
+            color: #f44336;
+        }
+
+        /* Info tooltip */
+        .info-tip {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            background: #333;
+            border-radius: 50%;
+            font-size: 10px;
+            text-align: center;
+            line-height: 16px;
+            color: #888;
+            cursor: help;
+            margin-left: 4px;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+        }
+
+        .footer-text {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .footer-link {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        .footer-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Benchmark indicator */
+        .benchmark {
+            margin-top: 12px;
+            padding: 12px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 8px;
+            font-size: 12px;
+        }
+
+        .benchmark-label {
+            color: #888;
+            margin-bottom: 8px;
+        }
+
+        .benchmark-bar {
+            height: 8px;
+            background: #1a1a1a;
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .benchmark-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+
+        .benchmark-markers {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 4px;
+            font-size: 10px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="header">
+            <h1 class="title">Rental Yield Calculator</h1>
+            <p class="subtitle">Calculate gross and net rental yields for South African properties</p>
+        </div>
+
+        <div class="main-grid">
+            <!-- Input Section -->
+            <div class="input-section">
+                <h2 class="section-title">Property Details</h2>
+
+                <div class="input-group">
+                    <label class="input-label">Purchase Price</label>
+                    <div class="input-wrapper">
+                        <span class="currency-prefix">R</span>
+                        <input type="text" class="input-field" id="purchasePrice" placeholder="1,500,000" oninput="formatNumber(this); calculate()">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label class="input-label">Monthly Rent</label>
+                    <div class="input-wrapper">
+                        <span class="currency-prefix">R</span>
+                        <input type="text" class="input-field" id="monthlyRent" placeholder="12,000" oninput="formatNumber(this); calculate()">
+                    </div>
+                </div>
+
+                <h2 class="section-title" style="margin-top: 24px;">Monthly Expenses</h2>
+
+                <div class="input-group">
+                    <label class="input-label">Rates & Taxes</label>
+                    <div class="input-wrapper">
+                        <span class="currency-prefix">R</span>
+                        <input type="text" class="input-field" id="rates" placeholder="1,500" oninput="formatNumber(this); calculate()">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label class="input-label">Levies (Body Corporate)</label>
+                    <div class="input-wrapper">
+                        <span class="currency-prefix">R</span>
+                        <input type="text" class="input-field" id="levies" placeholder="2,000" oninput="formatNumber(this); calculate()">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label class="input-label">Insurance</label>
+                    <div class="input-wrapper">
+                        <span class="currency-prefix">R</span>
+                        <input type="text" class="input-field" id="insurance" placeholder="500" oninput="formatNumber(this); calculate()">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label class="input-label">Maintenance Reserve <span class="info-tip" title="Typically 5-10% of rent for repairs and upkeep">?</span></label>
+                    <div class="input-wrapper">
+                        <span class="currency-prefix">R</span>
+                        <input type="text" class="input-field" id="maintenance" placeholder="600" oninput="formatNumber(this); calculate()">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label class="input-label">Vacancy Allowance (% of rent) <span class="info-tip" title="Account for months without tenants, typically 5-8%">?</span></label>
+                    <div class="input-wrapper">
+                        <input type="text" class="input-field with-percent" id="vacancy" placeholder="5" oninput="calculate()">
+                        <span class="percent-suffix">%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Section -->
+            <div class="results-section">
+                <h2 class="section-title">Your Returns</h2>
+
+                <div class="result-card highlight">
+                    <div class="result-label">Net Rental Yield</div>
+                    <div class="result-value" id="netYield">--%</div>
+                    <div class="result-subtext">After all expenses</div>
+                </div>
+
+                <div class="result-card">
+                    <div class="result-label">Gross Rental Yield</div>
+                    <div class="result-value" id="grossYield">--%</div>
+                    <div class="result-subtext">Before expenses</div>
+                </div>
+
+                <div class="benchmark">
+                    <div class="benchmark-label">How does this compare?</div>
+                    <div class="benchmark-bar">
+                        <div class="benchmark-fill" id="benchmarkFill" style="width: 0%; background: #666;"></div>
+                    </div>
+                    <div class="benchmark-markers">
+                        <span>0%</span>
+                        <span>Poor &lt;5%</span>
+                        <span>Okay 5-8%</span>
+                        <span>Good 8%+</span>
+                        <span>12%</span>
+                    </div>
+                </div>
+
+                <div class="breakdown">
+                    <div class="breakdown-row">
+                        <span class="breakdown-label">Annual Rent</span>
+                        <span class="breakdown-value" id="annualRent">R --</span>
+                    </div>
+                    <div class="breakdown-row">
+                        <span class="breakdown-label">Annual Expenses</span>
+                        <span class="breakdown-value expense" id="annualExpenses">- R --</span>
+                    </div>
+                    <div class="breakdown-row">
+                        <span class="breakdown-label">Vacancy Cost</span>
+                        <span class="breakdown-value expense" id="vacancyCost">- R --</span>
+                    </div>
+                    <div class="breakdown-row" style="border-top: 1px solid rgba(255,255,255,0.1); margin-top: 8px; padding-top: 12px;">
+                        <span class="breakdown-label">Net Annual Income</span>
+                        <span class="breakdown-value" id="netIncome" style="color: #4CAF50;">R --</span>
+                    </div>
+                    <div class="breakdown-row">
+                        <span class="breakdown-label">Monthly Cash Flow</span>
+                        <span class="breakdown-value" id="monthlyCashFlow">R --</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comparison Section -->
+        <div class="comparison-section">
+            <div class="comparison-header">
+                <h3 class="comparison-title">Compare Properties</h3>
+                <button class="add-property-btn" onclick="addCurrentProperty()">+ Add Current Property</button>
+            </div>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Rent</th>
+                        <th>Gross Yield</th>
+                        <th>Net Yield</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="comparisonBody">
+                    <tr id="emptyRow">
+                        <td colspan="6" style="text-align: center; color: #666; padding: 24px;">
+                            Add properties above to compare yields
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="footer">
+            <p class="footer-text">
+                Built by <a href="#" class="footer-link">The Winning Formula</a> ·
+                Data-driven property decisions
+            </p>
+        </div>
+    </div>
+
+    <script>
+        let properties = [];
+        let propertyCount = 0;
+
+        function parseNumber(str) {
+            if (!str) return 0;
+            return parseFloat(str.replace(/[^\d.]/g, '')) || 0;
+        }
+
+        function formatNumber(input) {
+            let value = input.value.replace(/[^\d]/g, '');
+            if (value) {
+                value = parseInt(value).toLocaleString('en-ZA');
+            }
+            input.value = value;
+        }
+
+        function formatCurrency(num) {
+            return 'R ' + num.toLocaleString('en-ZA', { maximumFractionDigits: 0 });
+        }
+
+        function calculate() {
+            const purchasePrice = parseNumber(document.getElementById('purchasePrice').value);
+            const monthlyRent = parseNumber(document.getElementById('monthlyRent').value);
+            const rates = parseNumber(document.getElementById('rates').value);
+            const levies = parseNumber(document.getElementById('levies').value);
+            const insurance = parseNumber(document.getElementById('insurance').value);
+            const maintenance = parseNumber(document.getElementById('maintenance').value);
+            const vacancyPercent = parseFloat(document.getElementById('vacancy').value) || 0;
+
+            // Calculations
+            const annualRent = monthlyRent * 12;
+            const monthlyExpenses = rates + levies + insurance + maintenance;
+            const annualExpenses = monthlyExpenses * 12;
+            const vacancyCost = annualRent * (vacancyPercent / 100);
+            const netAnnualIncome = annualRent - annualExpenses - vacancyCost;
+            const monthlyCashFlow = netAnnualIncome / 12;
+
+            // Yields
+            const grossYield = purchasePrice > 0 ? (annualRent / purchasePrice) * 100 : 0;
+            const netYield = purchasePrice > 0 ? (netAnnualIncome / purchasePrice) * 100 : 0;
+
+            // Update display
+            document.getElementById('grossYield').textContent = grossYield.toFixed(1) + '%';
+            document.getElementById('netYield').textContent = netYield.toFixed(1) + '%';
+
+            // Color coding for net yield
+            const netYieldEl = document.getElementById('netYield');
+            netYieldEl.className = 'result-value';
+            if (netYield >= 8) {
+                netYieldEl.classList.add('positive');
+            } else if (netYield >= 5) {
+                netYieldEl.classList.add('warning');
+            } else if (netYield > 0) {
+                netYieldEl.classList.add('negative');
+            }
+
+            // Breakdown
+            document.getElementById('annualRent').textContent = formatCurrency(annualRent);
+            document.getElementById('annualExpenses').textContent = '- ' + formatCurrency(annualExpenses);
+            document.getElementById('vacancyCost').textContent = '- ' + formatCurrency(vacancyCost);
+            document.getElementById('netIncome').textContent = formatCurrency(netAnnualIncome);
+            document.getElementById('monthlyCashFlow').textContent = formatCurrency(monthlyCashFlow);
+
+            // Benchmark bar
+            const benchmarkFill = document.getElementById('benchmarkFill');
+            const benchmarkWidth = Math.min(netYield / 12 * 100, 100);
+            benchmarkFill.style.width = benchmarkWidth + '%';
+
+            if (netYield >= 8) {
+                benchmarkFill.style.background = '#4CAF50';
+            } else if (netYield >= 5) {
+                benchmarkFill.style.background = '#FFC107';
+            } else {
+                benchmarkFill.style.background = '#f44336';
+            }
+
+            return { purchasePrice, monthlyRent, grossYield, netYield };
+        }
+
+        function addCurrentProperty() {
+            const data = calculate();
+
+            if (data.purchasePrice === 0 || data.monthlyRent === 0) {
+                alert('Please enter purchase price and rent first');
+                return;
+            }
+
+            propertyCount++;
+            const property = {
+                id: propertyCount,
+                name: 'Property ' + propertyCount,
+                price: data.purchasePrice,
+                rent: data.monthlyRent,
+                grossYield: data.grossYield,
+                netYield: data.netYield
+            };
+
+            properties.push(property);
+            renderComparison();
+        }
+
+        function removeProperty(id) {
+            properties = properties.filter(p => p.id !== id);
+            renderComparison();
+        }
+
+        function getYieldBadgeClass(yield_) {
+            if (yield_ >= 8) return 'good';
+            if (yield_ >= 5) return 'okay';
+            return 'poor';
+        }
+
+        function renderComparison() {
+            const tbody = document.getElementById('comparisonBody');
+
+            if (properties.length === 0) {
+                tbody.innerHTML = `
+                    <tr id="emptyRow">
+                        <td colspan="6" style="text-align: center; color: #666; padding: 24px;">
+                            Add properties above to compare yields
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            // Sort by net yield descending
+            const sorted = [...properties].sort((a, b) => b.netYield - a.netYield);
+
+            tbody.innerHTML = sorted.map(p => `
+                <tr>
+                    <td><strong>${p.name}</strong></td>
+                    <td>${formatCurrency(p.price)}</td>
+                    <td>${formatCurrency(p.rent)}/mo</td>
+                    <td>${p.grossYield.toFixed(1)}%</td>
+                    <td><span class="yield-badge ${getYieldBadgeClass(p.netYield)}">${p.netYield.toFixed(1)}%</span></td>
+                    <td><button class="remove-btn" onclick="removeProperty(${p.id})">×</button></td>
+                </tr>
+            `).join('');
+        }
+
+        // Initialize
+        calculate();
+    </script>
+</body>
+</html>

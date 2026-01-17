@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Winning Formula - Email Template v2</title>
+  <style>
+    /* ============================================
+       BRAND COLORS - Dark Dashboard Theme
+       ============================================ */
+    :root {
+      --bg-primary: #0d1117;
+      --bg-secondary: #161b22;
+      --bg-card: #1c2128;
+      --border-color: #30363d;
+      --text-primary: #e6edf3;
+      --text-secondary: #8b949e;
+      --accent-orange: #ff8000;
+      --accent-orange-soft: #ffb366;
+      --accent-green: #3fb950;
+      --accent-blue: #58a6ff;
+      --accent-purple: #a371f7;
+      --accent-pink: #f778ba;
+      --accent-teal: #2dd4bf;
+    }
+
+    /* ============================================
+       BASE STYLES
+       ============================================ */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #0d1117;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+      color: #e6edf3;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .email-container {
+      max-width: 680px;
+      margin: 0 auto;
+      background-color: #0d1117;
+    }
+
+    /* ============================================
+       HEADER
+       ============================================ */
+    .header {
+      background: linear-gradient(180deg, #161b22 0%, #0d1117 100%);
+      padding: 40px 32px 32px;
+      text-align: center;
+      border-bottom: 1px solid #30363d;
+    }
+
+    .header-image {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+
+    .header-title {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      margin: 0 0 8px 0;
+      color: #e6edf3;
+    }
+
+    .header-tagline {
+      font-size: 15px;
+      color: #8b949e;
+      margin: 0 0 20px 0;
+    }
+
+    .pillar-tag {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .pillar-tag.f1 { background: linear-gradient(135deg, #ff8000, #ff6600); color: #fff; }
+    .pillar-tag.property { background: linear-gradient(135deg, #2dd4bf, #14b8a6); color: #0d1117; }
+    .pillar-tag.skincare { background: linear-gradient(135deg, #f778ba, #ec4899); color: #fff; }
+    .pillar-tag.tech { background: linear-gradient(135deg, #58a6ff, #3b82f6); color: #fff; }
+
+    /* ============================================
+       CONTENT
+       ============================================ */
+    .content {
+      padding: 40px 32px;
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin: 0 0 24px 0;
+      color: #e6edf3;
+    }
+
+    h2 {
+      font-size: 22px;
+      font-weight: 600;
+      line-height: 1.3;
+      margin: 40px 0 16px 0;
+      color: #e6edf3;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    h2::before {
+      content: '';
+      width: 4px;
+      height: 24px;
+      background: #ff8000;
+      border-radius: 2px;
+    }
+
+    h3 {
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 1.4;
+      margin: 28px 0 12px 0;
+      color: #e6edf3;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.7;
+      margin: 0 0 16px 0;
+      color: #e6edf3;
+    }
+
+    a {
+      color: #ff8000;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    a:hover {
+      color: #ffb366;
+      text-decoration: underline;
+    }
+
+    strong {
+      color: #fff;
+      font-weight: 600;
+    }
+
+    /* ============================================
+       DATA VISUALIZATION CONTAINER
+       ============================================ */
+    .data-viz {
+      background-color: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 12px;
+      margin: 28px 0;
+      overflow: hidden;
+    }
+
+    .data-viz-header {
+      background-color: #1c2128;
+      padding: 14px 20px;
+      border-bottom: 1px solid #30363d;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .data-viz-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #e6edf3;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .data-viz-title::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: #ff8000;
+      border-radius: 50%;
+    }
+
+    .data-viz-badge {
+      font-size: 11px;
+      padding: 4px 10px;
+      background: rgba(255, 128, 0, 0.15);
+      color: #ff8000;
+      border-radius: 12px;
+      font-weight: 500;
+    }
+
+    .data-viz-content {
+      padding: 0;
+    }
+
+    .data-viz-content img {
+      width: 100%;
+      display: block;
+    }
+
+    .data-viz-caption {
+      padding: 14px 20px;
+      font-size: 13px;
+      color: #8b949e;
+      background-color: #1c2128;
+      border-top: 1px solid #30363d;
+    }
+
+    /* ============================================
+       STATS GRID
+       ============================================ */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 24px 0;
+    }
+
+    .stat-card {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 28px;
+      font-weight: 700;
+      color: #ff8000;
+      font-family: 'JetBrains Mono', 'SF Mono', monospace;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: #8b949e;
+      margin-top: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .stat-delta {
+      font-size: 12px;
+      margin-top: 8px;
+      padding: 3px 8px;
+      border-radius: 6px;
+      display: inline-block;
+    }
+
+    .stat-delta.positive {
+      background: rgba(63, 185, 80, 0.15);
+      color: #3fb950;
+    }
+
+    .stat-delta.negative {
+      background: rgba(248, 81, 73, 0.15);
+      color: #f85149;
+    }
+
+    /* ============================================
+       HIGHLIGHT BOX
+       ============================================ */
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(255, 128, 0, 0.1) 0%, rgba(255, 128, 0, 0.05) 100%);
+      border: 1px solid rgba(255, 128, 0, 0.3);
+      border-left: 4px solid #ff8000;
+      border-radius: 0 10px 10px 0;
+      padding: 20px 24px;
+      margin: 24px 0;
+    }
+
+    .highlight-box p {
+      margin: 0;
+      color: #e6edf3;
+    }
+
+    .highlight-box p + p {
+      margin-top: 8px;
+    }
+
+    /* Pillar variants */
+    .highlight-box.property {
+      background: linear-gradient(135deg, rgba(45, 212, 191, 0.1) 0%, rgba(45, 212, 191, 0.05) 100%);
+      border-color: rgba(45, 212, 191, 0.3);
+      border-left-color: #2dd4bf;
+    }
+
+    .highlight-box.skincare {
+      background: linear-gradient(135deg, rgba(247, 120, 186, 0.1) 0%, rgba(247, 120, 186, 0.05) 100%);
+      border-color: rgba(247, 120, 186, 0.3);
+      border-left-color: #f778ba;
+    }
+
+    .highlight-box.tech {
+      background: linear-gradient(135deg, rgba(88, 166, 255, 0.1) 0%, rgba(88, 166, 255, 0.05) 100%);
+      border-color: rgba(88, 166, 255, 0.3);
+      border-left-color: #58a6ff;
+    }
+
+    /* ============================================
+       DATA POINTS (inline)
+       ============================================ */
+    .data-point {
+      font-family: 'JetBrains Mono', 'SF Mono', monospace;
+      background: rgba(255, 128, 0, 0.15);
+      color: #ff8000;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    /* ============================================
+       DRIVER/TEAM BADGES
+       ============================================ */
+    .driver-badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      font-family: 'JetBrains Mono', 'SF Mono', monospace;
+    }
+
+    .driver-badge.ver { background: #3671c6; color: #fff; }
+    .driver-badge.nor { background: #ff8000; color: #fff; }
+    .driver-badge.lec { background: #e8002d; color: #fff; }
+    .driver-badge.ham { background: #27f4d2; color: #0d1117; }
+    .driver-badge.rus { background: #27f4d2; color: #0d1117; }
+    .driver-badge.sai { background: #e8002d; color: #fff; }
+    .driver-badge.pia { background: #ff8000; color: #fff; }
+
+    /* ============================================
+       BLOCKQUOTE
+       ============================================ */
+    blockquote {
+      background: #161b22;
+      border-left: 4px solid #ff8000;
+      border-radius: 0 10px 10px 0;
+      padding: 20px 24px;
+      margin: 28px 0;
+      font-style: italic;
+    }
+
+    blockquote p {
+      margin: 0;
+      color: #e6edf3;
+      font-size: 17px;
+    }
+
+    /* ============================================
+       LISTS
+       ============================================ */
+    ul, ol {
+      padding-left: 24px;
+      margin: 16px 0;
+    }
+
+    li {
+      margin-bottom: 10px;
+      color: #e6edf3;
+    }
+
+    li::marker {
+      color: #ff8000;
+    }
+
+    /* ============================================
+       CTA BUTTONS
+       ============================================ */
+    .cta-container {
+      text-align: center;
+      margin: 32px 0;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: linear-gradient(135deg, #ff8000 0%, #ff6600 100%);
+      color: #fff !important;
+      padding: 16px 32px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 16px;
+      text-decoration: none !important;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 14px rgba(255, 128, 0, 0.3);
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 128, 0, 0.4);
+    }
+
+    .cta-button.secondary {
+      background: transparent;
+      border: 2px solid #ff8000;
+      color: #ff8000 !important;
+      box-shadow: none;
+    }
+
+    /* ============================================
+       SUBSCRIBER EXCLUSIVE BOX
+       ============================================ */
+    .exclusive-box {
+      background: linear-gradient(135deg, #161b22 0%, #1c2128 100%);
+      border: 1px solid #30363d;
+      border-radius: 12px;
+      padding: 28px;
+      margin: 32px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .exclusive-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #ff8000, #ff6600, #ffb366);
+    }
+
+    .exclusive-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #ff8000, #ff6600);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+    }
+
+    .exclusive-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #e6edf3;
+      margin: 0 0 12px 0;
+    }
+
+    .exclusive-description {
+      color: #8b949e;
+      font-size: 15px;
+      margin: 0 0 20px 0;
+    }
+
+    /* ============================================
+       DIVIDER
+       ============================================ */
+    .divider {
+      border: none;
+      border-top: 1px solid #30363d;
+      margin: 40px 0;
+    }
+
+    /* ============================================
+       AUTHOR BOX
+       ============================================ */
+    .author-box {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 12px;
+      padding: 24px;
+      margin: 32px 0;
+    }
+
+    .author-photo {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #ff8000;
+      flex-shrink: 0;
+    }
+
+    .author-info {
+      flex: 1;
+    }
+
+    .author-name {
+      font-size: 18px;
+      font-weight: 700;
+      color: #e6edf3;
+      margin: 0 0 4px 0;
+    }
+
+    .author-title {
+      font-size: 14px;
+      color: #ff8000;
+      margin: 0 0 12px 0;
+    }
+
+    .author-bio {
+      font-size: 14px;
+      color: #8b949e;
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    /* ============================================
+       FOOTER
+       ============================================ */
+    .footer {
+      background: #161b22;
+      padding: 40px 32px;
+      text-align: center;
+      border-top: 1px solid #30363d;
+    }
+
+    .footer-tagline {
+      font-size: 16px;
+      color: #8b949e;
+      font-style: italic;
+      margin: 0 0 24px 0;
+    }
+
+    .social-links {
+      margin: 24px 0;
+    }
+
+    .social-links a {
+      display: inline-block;
+      margin: 0 12px;
+      color: #8b949e;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+
+    .social-links a:hover {
+      color: #ff8000;
+    }
+
+    .footer-links {
+      margin-top: 24px;
+      font-size: 13px;
+    }
+
+    .footer-links a {
+      color: #8b949e;
+      margin: 0 10px;
+    }
+
+    .unsubscribe {
+      font-size: 12px;
+      color: #6e7681;
+      margin-top: 20px;
+    }
+
+    /* ============================================
+       RESPONSIVE
+       ============================================ */
+    @media (max-width: 600px) {
+      .content, .header, .footer {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      h1 { font-size: 26px; }
+      h2 { font-size: 20px; }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .author-box {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .author-photo {
+        margin: 0 auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="email-container">
+
+    <!-- HEADER -->
+    <div class="header">
+      <img src="twf-header-main.png" alt="The Winning Formula" class="header-image">
+      <p class="header-tagline">Data-driven thinking for F1, property, skincare, and life.</p>
+      <span class="pillar-tag f1">F1 Analysis</span>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content">
+
+      <!-- Issue Title -->
+      <h1>Las Vegas GP: Why Verstappen's "Slow" Laps Won the Race</h1>
+
+      <p>Everyone saw Max cross the line P5. But the data tells a completely different story about who actually had the fastest car that night.</p>
+
+      <p>I spent the week analyzing the race pace data, and what I found might surprise you. Let's break it down.</p>
+
+      <!-- Stats Grid -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-value">1:35.209</div>
+          <div class="stat-label">Fastest Mean Lap</div>
+          <div class="stat-delta positive">VER</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">+0.38s</div>
+          <div class="stat-label">NOR Gap to VER</div>
+          <div class="stat-delta negative">per lap</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">0.03s</div>
+          <div class="stat-label">LEC Consistency</div>
+          <div class="stat-delta positive">std dev</div>
+        </div>
+      </div>
+
+      <h2>The Race Pace Reality</h2>
+
+      <p>Look at the boxplot distribution below. <span class="driver-badge ver">VER</span> had the fastest mean lap time despite finishing P5. His median (solid line) and mean (dashed) are nearly identical - that's elite consistency.</p>
+
+      <!-- Data Visualization -->
+      <div class="data-viz">
+        <div class="data-viz-header">
+          <span class="data-viz-title">Race Pace Distribution - Las Vegas GP</span>
+          <span class="data-viz-badge">Clean laps only</span>
+        </div>
+        <div class="data-viz-content">
+          <img src="https://via.placeholder.com/616x300/161b22/ff8000?text=Race+Pace+Boxplot+Visualization" alt="Race pace boxplot showing driver distributions">
+        </div>
+        <div class="data-viz-caption">
+          Drivers ordered by mean lap time. Box = IQR, whiskers = 1.5×IQR, circles = outliers.
+        </div>
+      </div>
+
+      <p>The key insight? <span class="driver-badge nor">NOR</span> was <span class="data-point">+0.38s</span> slower per lap on average. Over a 50-lap race, that's 19 seconds of pure pace deficit.</p>
+
+      <h2>What Strategy Masked</h2>
+
+      <div class="highlight-box">
+        <p><strong>The story everyone missed:</strong></p>
+        <p>Verstappen's penalty and grid position forced aggressive early overtakes. By lap 20, he was managing tires while others pushed - explaining the "slow" laps late in the race.</p>
+      </div>
+
+      <p>Check the lap progression chart (available in your subscriber dashboard). You'll see Verstappen's pace was deliberately managed after lap 35, while Norris was pushing maximum attack.</p>
+
+      <blockquote>
+        <p>"Race pace beats qualifying pace. Always look at the data before drawing conclusions from the result."</p>
+      </blockquote>
+
+      <h2>Key Takeaways</h2>
+
+      <ul>
+        <li><strong>Mean lap time</strong> is more useful than fastest lap for race analysis</li>
+        <li><strong>Consistency matters</strong> - look at the spread, not just the average</li>
+        <li><strong>Context is everything</strong> - tire strategy and track position change behavior</li>
+        <li><strong>The result doesn't tell the story</strong> - P5 Verstappen was faster than P1 Russell</li>
+      </ul>
+
+      <hr class="divider">
+
+      <!-- Subscriber Exclusive -->
+      <div class="exclusive-box">
+        <span class="exclusive-badge">Subscriber Exclusive</span>
+        <h3 class="exclusive-title">Interactive Race Pace Dashboard</h3>
+        <p class="exclusive-description">
+          As a subscriber, you get full access to the interactive dashboard. Filter by driver, compare lap progressions, analyze tire degradation, and export the data.
+        </p>
+        <div class="cta-container" style="margin: 0;">
+          <a href="#" class="cta-button">Open Dashboard</a>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <!-- Author Box -->
+      <div class="author-box">
+        <img src="founder-photo.jpg" alt="Orianne" class="author-photo">
+        <div class="author-info">
+          <h4 class="author-name">Orianne</h4>
+          <p class="author-title">Data Engineer & Newsletter Creator</p>
+          <p class="author-bio">I help companies escape Excel hell by day and analyze F1, property, and skincare data by night. Building tools that turn complex data into actionable insights.</p>
+        </div>
+      </div>
+
+      <p><strong>What should I analyze next?</strong> Reply to this email - I read every response.</p>
+
+      <p>Until next time,<br>
+      <strong>Orianne</strong></p>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <p class="footer-tagline">"I'm trying to find the winning formula."</p>
+
+      <div class="social-links">
+        <a href="#">Twitter</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">GitHub</a>
+      </div>
+
+      <div class="footer-links">
+        <a href="#">View in browser</a> |
+        <a href="#">Past issues</a> |
+        <a href="#">Share with a friend</a>
+      </div>
+
+      <p class="unsubscribe">
+        <a href="#">Unsubscribe</a> | <a href="#">Update preferences</a>
+      </p>
+    </div>
+
+  </div>
+</body>
+</html>

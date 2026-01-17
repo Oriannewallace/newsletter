@@ -5,18 +5,18 @@
       "title": "Set up Beehiiv account and configure newsletter",
       "description": "Create Beehiiv account, configure newsletter settings, and set up 'The Winning Formula' branding",
       "details": "Sign up for Beehiiv, configure newsletter name, description, sender details, and basic settings. Set up welcome email sequence.",
-      "status": "pending",
+      "status": "done",
       "dependencies": [],
       "priority": "high",
       "tags": ["setup"],
       "subtasks": [
-        {"id": 1, "title": "Create Beehiiv account and verify email", "status": "pending"},
-        {"id": 2, "title": "Set newsletter name to 'The Winning Formula'", "status": "pending"},
-        {"id": 3, "title": "Write newsletter description highlighting data-driven content", "status": "pending"},
-        {"id": 4, "title": "Configure sender name and email address", "status": "pending"},
+        {"id": 1, "title": "Create Beehiiv account and verify email", "status": "done"},
+        {"id": 2, "title": "Set newsletter name to 'The Winning Formula'", "status": "done"},
+        {"id": 3, "title": "Write newsletter description highlighting data-driven content", "status": "done"},
+        {"id": 4, "title": "Configure sender name and email address", "status": "done"},
         {"id": 5, "title": "Set up custom domain (optional)", "status": "pending"},
         {"id": 6, "title": "Create welcome email for new subscribers", "status": "pending"},
-        {"id": 7, "title": "Configure subscription confirmation settings", "status": "pending"}
+        {"id": 7, "title": "Configure subscription confirmation settings", "status": "done"}
       ]
     },
     {
@@ -24,19 +24,19 @@
       "title": "Design newsletter visual identity and branding",
       "description": "Create consistent visual branding for The Winning Formula newsletter including colors, fonts, and templates",
       "details": "Design header/logo, choose color palette that works across all four pillars (Property, F1, Skincare, Tech), create reusable templates for each content type.",
-      "status": "pending",
+      "status": "done",
       "dependencies": [1],
       "priority": "high",
       "tags": ["setup", "design"],
       "subtasks": [
-        {"id": 1, "title": "Design newsletter logo/header image", "status": "pending"},
-        {"id": 2, "title": "Choose primary color palette (works across all 4 pillars)", "status": "pending"},
-        {"id": 3, "title": "Select fonts for headings and body text", "status": "pending"},
-        {"id": 4, "title": "Create email template for Property content", "status": "pending"},
-        {"id": 5, "title": "Create email template for F1 content", "status": "pending"},
-        {"id": 6, "title": "Create email template for Skincare content", "status": "pending"},
-        {"id": 7, "title": "Create email template for Tech content", "status": "pending"},
-        {"id": 8, "title": "Design footer with social links and unsubscribe", "status": "pending"}
+        {"id": 1, "title": "Design newsletter logo/header image", "status": "done"},
+        {"id": 2, "title": "Choose primary color palette (works across all 4 pillars)", "status": "done"},
+        {"id": 3, "title": "Select fonts for headings and body text", "status": "done"},
+        {"id": 4, "title": "Create email template for Property content", "status": "done"},
+        {"id": 5, "title": "Create email template for F1 content", "status": "done"},
+        {"id": 6, "title": "Create email template for Skincare content", "status": "done"},
+        {"id": 7, "title": "Create email template for Tech content", "status": "done"},
+        {"id": 8, "title": "Design footer with social links and unsubscribe", "status": "done"}
       ]
     },
     {
@@ -247,24 +247,24 @@
       "title": "Create F1 Car Evolution 360° Spinning Animation (Option A: McLaren 2024)",
       "description": "Build an interactive 360-degree spinning McLaren MCL38 animation showing the transformation through the 2024 season, using Nano Banana + Veo 3 + Framer",
       "details": "Option A: Single Year Evolution - Focus on McLaren 2024 transformation. Shows: Pre-Miami → Miami Upgrade → Final Spec. Story: 'How upgrades won the championship'. The car spins continuously while morphing between the 3 upgrade stages.",
-      "status": "in-progress",
+      "status": "done",
       "dependencies": [],
       "priority": "high",
       "tags": ["f1", "visual", "interactive"],
       "subtasks": [
-        {"id": 1, "title": "Research 2024 F1 car upgrades - identify key upgrade packages by team and race", "status": "pending"},
-        {"id": 2, "title": "Select focus team(s) for animation (Red Bull, McLaren, Ferrari)", "status": "pending"},
-        {"id": 3, "title": "Gather reference images of F1 cars at different season stages", "status": "pending"},
-        {"id": 4, "title": "Write Nano Banana prompts for F1 car base images (front, side, 3/4 angles)", "status": "pending"},
-        {"id": 5, "title": "Generate F1 car images using Nano Banana for each upgrade stage", "status": "pending"},
-        {"id": 6, "title": "Write Veo 3 prompt for 360° spinning animation with smooth morphing", "status": "pending"},
+        {"id": 1, "title": "Research 2024 F1 car upgrades - identify key upgrade packages by team and race", "status": "done"},
+        {"id": 2, "title": "Select focus team(s) for animation (Red Bull, McLaren, Ferrari)", "status": "done"},
+        {"id": 3, "title": "Gather reference images of F1 cars at different season stages", "status": "done"},
+        {"id": 4, "title": "Write Nano Banana prompts for F1 car base images (front, side, 3/4 angles)", "status": "done"},
+        {"id": 5, "title": "Generate F1 car images using Nano Banana for each upgrade stage", "status": "done"},
+        {"id": 6, "title": "Write Veo 3 prompt for 360° spinning animation with smooth morphing", "status": "done"},
         {"id": 7, "title": "Generate spinning/morphing video using Veo 3", "status": "done"},
-        {"id": 8, "title": "Create multiple versions (one per team or upgrade stage)", "status": "pending"},
-        {"id": 9, "title": "Design Framer component with team/version toggle controls", "status": "pending"},
-        {"id": 10, "title": "Build interactive web component in Framer", "status": "pending"},
-        {"id": 11, "title": "Add labels/annotations showing what changed in each upgrade", "status": "pending"},
-        {"id": 12, "title": "Test and optimize for newsletter embed and web display", "status": "pending"},
-        {"id": 13, "title": "Export final assets and integrate into F1 newsletter content", "status": "pending"}
+        {"id": 8, "title": "Create multiple versions (one per team or upgrade stage)", "status": "done"},
+        {"id": 9, "title": "Design Framer component with team/version toggle controls", "status": "done"},
+        {"id": 10, "title": "Build interactive web component in Framer", "status": "done"},
+        {"id": 11, "title": "Add labels/annotations showing what changed in each upgrade", "status": "done"},
+        {"id": 12, "title": "Test and optimize for newsletter embed and web display", "status": "done"},
+        {"id": 13, "title": "Export final assets and integrate into F1 newsletter content", "status": "done"}
       ]
     },
     {
@@ -272,20 +272,20 @@
       "title": "Add Interactive Hover Feature to F1 Car Component",
       "description": "When users hover over the F1 car image, show detailed info card with specs, performance data, and championship progression",
       "details": "Enhance the McLarenEvolution component with hover interactions. On hover, display: technical specs (engine, drivers, suspension), the Miami upgrade turning point stats, championship position journey (4th → 1st). Use CSS transitions and Framer Motion for smooth animations.",
-      "status": "pending",
+      "status": "done",
       "dependencies": [13],
       "priority": "high",
       "tags": ["f1", "visual", "interactive", "ux"],
       "subtasks": [
-        {"id": 1, "title": "Design hover info card layout with specs section", "status": "pending"},
-        {"id": 2, "title": "Add McLaren MCL38 technical specs data (engine, drivers, suspension)", "status": "pending"},
-        {"id": 3, "title": "Add Miami upgrade impact stats (19.2 → 31.1 pts/race)", "status": "pending"},
-        {"id": 4, "title": "Add championship progression data (position by race)", "status": "pending"},
-        {"id": 5, "title": "Implement hover state management in React component", "status": "pending"},
-        {"id": 6, "title": "Add CSS transitions for smooth hover animations", "status": "pending"},
-        {"id": 7, "title": "Create glassmorphism info card styling", "status": "pending"},
-        {"id": 8, "title": "Test hover interactions on desktop and tablet", "status": "pending"},
-        {"id": 9, "title": "Add fallback tap interaction for mobile users", "status": "pending"}
+        {"id": 1, "title": "Design hover info card layout with specs section", "status": "done"},
+        {"id": 2, "title": "Add McLaren MCL38 technical specs data (engine, drivers, suspension)", "status": "done"},
+        {"id": 3, "title": "Add Miami upgrade impact stats (19.2 → 31.1 pts/race)", "status": "done"},
+        {"id": 4, "title": "Add championship progression data (position by race)", "status": "done"},
+        {"id": 5, "title": "Implement hover state management in React component", "status": "done"},
+        {"id": 6, "title": "Add CSS transitions for smooth hover animations", "status": "done"},
+        {"id": 7, "title": "Create glassmorphism info card styling", "status": "done"},
+        {"id": 8, "title": "Test hover interactions on desktop and tablet", "status": "done"},
+        {"id": 9, "title": "Add fallback tap interaction for mobile users", "status": "done"}
       ]
     },
     {
@@ -293,19 +293,19 @@
       "title": "Create Championship Progression Visualization",
       "description": "Visual graphic showing McLaren's journey from 4th place (Bahrain) to 1st place (Abu Dhabi) in the 2024 Constructors Championship",
       "details": "Create an animated or static visualization showing: Starting position (4th, 32pts behind), Miami turning point, Final position (1st, 666pts). Could be a line chart, position tracker, or creative infographic. Should tell the 'underdog to champion' story visually.",
-      "status": "pending",
+      "status": "done",
       "dependencies": [],
       "priority": "high",
       "tags": ["f1", "visual", "data-viz"],
       "subtasks": [
-        {"id": 1, "title": "Gather race-by-race constructor standings data for 2024", "status": "pending"},
-        {"id": 2, "title": "Identify key milestone races (Bahrain, Miami, Abu Dhabi)", "status": "pending"},
-        {"id": 3, "title": "Design visualization concept (line chart vs position tracker)", "status": "pending"},
-        {"id": 4, "title": "Create static version with key data points", "status": "pending"},
-        {"id": 5, "title": "Add team color coding (McLaren papaya, Red Bull blue, Ferrari red)", "status": "pending"},
-        {"id": 6, "title": "Annotate Miami upgrade turning point on visual", "status": "pending"},
-        {"id": 7, "title": "Create animated version showing progression over time", "status": "pending"},
-        {"id": 8, "title": "Export for newsletter embed", "status": "pending"}
+        {"id": 1, "title": "Gather race-by-race constructor standings data for 2024", "status": "done"},
+        {"id": 2, "title": "Identify key milestone races (Bahrain, Miami, Abu Dhabi)", "status": "done"},
+        {"id": 3, "title": "Design visualization concept (line chart vs position tracker)", "status": "done"},
+        {"id": 4, "title": "Create static version with key data points", "status": "done"},
+        {"id": 5, "title": "Add team color coding (McLaren papaya, Red Bull blue, Ferrari red)", "status": "done"},
+        {"id": 6, "title": "Annotate Miami upgrade turning point on visual", "status": "done"},
+        {"id": 7, "title": "Create animated version showing progression over time", "status": "done"},
+        {"id": 8, "title": "Export for newsletter embed", "status": "done"}
       ]
     },
     {
@@ -361,6 +361,68 @@
         {"id": 5, "title": "Build driver consistency analyzer", "status": "done"},
         {"id": 6, "title": "Build teammate battle comparison", "status": "done"},
         {"id": 7, "title": "Create CLI for F1 data analysis", "status": "done"}
+      ]
+    },
+    {
+      "id": 19,
+      "title": "Implement Newsletter Formatting Best Practices",
+      "description": "Apply proven formatting techniques to maximize open rates and engagement",
+      "details": "Follow the newsletter formatting guide: short subject lines, hook-first structure, data visuals, CTAs, and engagement elements like polls.",
+      "status": "pending",
+      "dependencies": [],
+      "priority": "high",
+      "tags": ["content", "formatting", "growth"],
+      "subtasks": [
+        {"id": 1, "title": "Create subject line templates for each pillar (F1, Property, Skincare, Tech)", "status": "pending"},
+        {"id": 2, "title": "Design email structure template (Hook → Context → Data → So What → CTA)", "status": "pending"},
+        {"id": 3, "title": "Set up pre-send checklist in workflow", "status": "pending"},
+        {"id": 4, "title": "Configure A/B testing for subject lines in Beehiiv", "status": "pending"},
+        {"id": 5, "title": "Add poll/engagement element to first issue", "status": "pending"},
+        {"id": 6, "title": "Set up metrics tracking dashboard", "status": "pending"}
+      ]
+    },
+    {
+      "id": 20,
+      "title": "Build n8n Trends Tracker Workflow",
+      "description": "Automated system to scrape trending content across F1, Property, Skincare, and Tech for newsletter ideas",
+      "details": "n8n workflow that monitors Reddit, YouTube, Twitter, RSS feeds daily. AI analyzes relevance and suggests angles. Outputs to Google Sheet with daily Slack/email digest.",
+      "status": "pending",
+      "dependencies": [],
+      "priority": "high",
+      "tags": ["automation", "n8n", "content", "research"],
+      "subtasks": [
+        {"id": 1, "title": "Set up n8n (cloud or self-hosted)", "status": "pending"},
+        {"id": 2, "title": "Get API keys (Reddit, YouTube, Claude, Google Sheets)", "status": "pending"},
+        {"id": 3, "title": "Create Google Sheet with content ideas structure", "status": "pending"},
+        {"id": 4, "title": "Build Reddit scraper nodes (5 subreddits)", "status": "pending"},
+        {"id": 5, "title": "Build RSS feed reader nodes", "status": "pending"},
+        {"id": 6, "title": "Build keyword filter and pillar categorization", "status": "pending"},
+        {"id": 7, "title": "Add Claude AI analysis node for scoring/angles", "status": "pending"},
+        {"id": 8, "title": "Connect Google Sheets output", "status": "pending"},
+        {"id": 9, "title": "Set up daily Slack/email digest", "status": "pending"},
+        {"id": 10, "title": "Test and schedule daily 6AM run", "status": "pending"}
+      ]
+    },
+    {
+      "id": 21,
+      "title": "Build Content Repurposing Automation System",
+      "description": "Automate turning newsletter issues into social media posts to drive signups",
+      "details": "Create a workflow that takes each newsletter and generates Twitter threads, LinkedIn posts, Instagram carousels, and Reddit posts. Each piece drives back to newsletter signup with UTM tracking.",
+      "status": "pending",
+      "dependencies": [],
+      "priority": "high",
+      "tags": ["growth", "automation", "social"],
+      "subtasks": [
+        {"id": 1, "title": "Choose automation approach (Zapier/Make vs Python script vs manual)", "status": "pending"},
+        {"id": 2, "title": "Create Twitter/X thread prompt template", "status": "pending"},
+        {"id": 3, "title": "Create LinkedIn post prompt template", "status": "pending"},
+        {"id": 4, "title": "Create Instagram carousel prompt template", "status": "pending"},
+        {"id": 5, "title": "Create Reddit post guidelines per subreddit", "status": "pending"},
+        {"id": 6, "title": "Set up UTM tracking links for each platform", "status": "pending"},
+        {"id": 7, "title": "Create short-form video script template", "status": "pending"},
+        {"id": 8, "title": "Build or configure automation workflow", "status": "pending"},
+        {"id": 9, "title": "Test workflow with first newsletter issue", "status": "pending"},
+        {"id": 10, "title": "Set up analytics to track signups by source", "status": "pending"}
       ]
     }
   ],

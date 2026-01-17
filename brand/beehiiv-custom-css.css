@@ -1,0 +1,224 @@
+/*
+ * THE WINNING FORMULA - Beehiiv Custom CSS
+ * Copy and paste this into Beehiiv's Custom CSS settings
+ * Settings > Design > Custom CSS
+ */
+
+/* ============================================
+   ROOT VARIABLES (for reference)
+   ============================================
+   Deep Navy:     #1E3A5F
+   Light Navy:    #2D4A6F
+   Papaya Orange: #FF8000
+   Soft Orange:   #FFB366
+   White:         #FFFFFF
+   Slate Gray:    #64748B
+
+   F1 Accent:       #FF8000
+   Property Accent: #0D9488
+   Skincare Accent: #F472B6
+   Tech Accent:     #3B82F6
+*/
+
+/* ============================================
+   BASE EMAIL STYLES
+   ============================================ */
+
+/* Dark theme background */
+body,
+.email-body {
+  background-color: #1E3A5F !important;
+}
+
+/* Main content area */
+.email-content,
+.post-content {
+  background-color: #1E3A5F !important;
+  color: #FFFFFF !important;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+}
+
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+
+/* Headings */
+h1 {
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+  font-size: 28px !important;
+  line-height: 1.2 !important;
+}
+
+h2 {
+  color: #FFFFFF !important;
+  font-weight: 600 !important;
+  font-size: 22px !important;
+  line-height: 1.3 !important;
+  margin-top: 32px !important;
+}
+
+h3 {
+  color: #FFFFFF !important;
+  font-weight: 600 !important;
+  font-size: 18px !important;
+  line-height: 1.4 !important;
+}
+
+/* Body text */
+p {
+  color: #FFFFFF !important;
+  font-size: 16px !important;
+  line-height: 1.6 !important;
+}
+
+/* Links */
+a {
+  color: #FF8000 !important;
+  text-decoration: none !important;
+}
+
+a:hover {
+  color: #FFB366 !important;
+  text-decoration: underline !important;
+}
+
+/* ============================================
+   LISTS
+   ============================================ */
+
+ul, ol {
+  color: #FFFFFF !important;
+}
+
+li {
+  color: #FFFFFF !important;
+  margin-bottom: 8px !important;
+}
+
+/* ============================================
+   BLOCKQUOTES
+   ============================================ */
+
+blockquote {
+  background-color: #2D4A6F !important;
+  border-left: 4px solid #FF8000 !important;
+  border-radius: 0 8px 8px 0 !important;
+  padding: 16px 24px !important;
+  margin: 24px 0 !important;
+}
+
+blockquote p {
+  font-style: italic !important;
+  color: #FFFFFF !important;
+}
+
+/* ============================================
+   IMAGES
+   ============================================ */
+
+img {
+  border-radius: 8px !important;
+}
+
+figcaption,
+.image-caption {
+  color: #64748B !important;
+  font-size: 14px !important;
+  text-align: center !important;
+}
+
+/* ============================================
+   BUTTONS / CTAs
+   ============================================ */
+
+.button,
+.cta-button,
+[class*="button"] {
+  background-color: #FF8000 !important;
+  color: #FFFFFF !important;
+  border-radius: 6px !important;
+  font-weight: 600 !important;
+  padding: 14px 28px !important;
+  border: none !important;
+}
+
+.button:hover,
+.cta-button:hover {
+  background-color: #FFB366 !important;
+}
+
+/* ============================================
+   DIVIDERS
+   ============================================ */
+
+hr {
+  border: none !important;
+  border-top: 1px solid #2D4A6F !important;
+  margin: 32px 0 !important;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.footer,
+[class*="footer"] {
+  background-color: #2D4A6F !important;
+  color: #64748B !important;
+}
+
+.footer a {
+  color: #64748B !important;
+}
+
+/* ============================================
+   CODE / DATA POINTS
+   ============================================ */
+
+code,
+.data-point {
+  font-family: 'JetBrains Mono', 'SF Mono', 'Courier New', monospace !important;
+  background-color: #2D4A6F !important;
+  color: #FF8000 !important;
+  padding: 2px 8px !important;
+  border-radius: 4px !important;
+  font-size: 14px !important;
+}
+
+/* ============================================
+   HIGHLIGHT BOXES
+   ============================================ */
+
+/* Use with: <div class="highlight-box">...</div> */
+.highlight-box {
+  background-color: #2D4A6F !important;
+  border-left: 4px solid #FF8000 !important;
+  border-radius: 8px !important;
+  padding: 20px 24px !important;
+  margin: 24px 0 !important;
+}
+
+/* Pillar variants */
+.highlight-box.property { border-left-color: #0D9488 !important; }
+.highlight-box.skincare { border-left-color: #F472B6 !important; }
+.highlight-box.tech { border-left-color: #3B82F6 !important; }
+
+/* ============================================
+   PILLAR TAGS
+   ============================================ */
+
+.pillar-tag {
+  display: inline-block !important;
+  padding: 4px 12px !important;
+  border-radius: 16px !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+}
+
+.pillar-tag.f1 { background-color: #FF8000 !important; }
+.pillar-tag.property { background-color: #0D9488 !important; }
+.pillar-tag.skincare { background-color: #F472B6 !important; }
+.pillar-tag.tech { background-color: #3B82F6 !important; }
