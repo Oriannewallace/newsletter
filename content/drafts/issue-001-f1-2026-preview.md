@@ -68,7 +68,7 @@ The Barcelona test (Jan 26-29) is behind closed doors. No timing data will be pu
 
 ## What I'm Tracking
 
-This season, I'm going to analyze:
+This season, I'm going to analyse:
 - How the new aero rules affect overtaking
 - Which team adapts fastest to the new regs
 - Whether Cadillac can score points in Year 1
