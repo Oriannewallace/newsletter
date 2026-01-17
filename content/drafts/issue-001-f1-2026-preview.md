@@ -74,7 +74,7 @@ This season, I'm going to analyse:
 - Whether Cadillac can score points in Year 1
 - The real pace hidden in testing data
 
-**Subscribers will get access to my race pace dashboards.** The same analysis I used to predict McLaren's 2024 championship run.
+I'll be sharing my analysis throughout the season: the same approach I used to predict McLaren's 2024 championship run.
 
 ---
 

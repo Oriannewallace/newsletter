@@ -84,6 +84,22 @@
 
 ---
 
+## Language & Spelling
+
+### Use South African/British English
+- **analyse** not analyze
+- **colour** not color
+- **centre** not center
+- **favourite** not favorite
+- **organisation** not organization
+- **recognise** not recognize
+- **behaviour** not behavior
+- **travelled** not traveled
+- **focussed** not focused
+- **programme** not program (unless referring to computer code)
+
+---
+
 ## Voice & Tone
 
 ### Sound Like:
