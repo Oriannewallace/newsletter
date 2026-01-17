@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>McLaren MCL38 2024 Evolution</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .evolution-container {
+            font-family: system-ui, -apple-system, sans-serif;
+            background: #0a0a0a;
+            border-radius: 16px;
+            padding: 24px;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #fff;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .title {
+            font-size: 28px;
+            font-weight: 700;
+            background: linear-gradient(90deg, #FF8000, #47C7FC);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: #888;
+        }
+
+        .display {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: #000;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        .display video,
+        .display img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.5s ease;
+        }
+
+        .display img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+        }
+
+        .display img.active {
+            opacity: 1;
+        }
+
+        .stats-overlay {
+            position: absolute;
+            bottom: 16px;
+            left: 16px;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(8px);
+            padding: 12px 16px;
+            border-radius: 8px;
+        }
+
+        .stats-label {
+            display: block;
+            font-size: 12px;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .stats-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #FF8000;
+            transition: color 0.3s ease;
+        }
+
+        /* Info Card - Glassmorphism */
+        .info-card {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 280px;
+            background: rgba(20, 20, 20, 0.85);
+            backdrop-filter: blur(20px);
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 16px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+            opacity: 0;
+            transform: translateX(20px);
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
+        .info-card.visible {
+            opacity: 1;
+            transform: translateX(0);
+            pointer-events: auto;
+        }
+
+        .info-section {
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .info-section:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .info-title {
+            font-size: 11px;
+            font-weight: 600;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0 0 8px 0;
+        }
+
+        .spec-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .spec-item {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .spec-label {
+            font-size: 10px;
+            color: #666;
+        }
+
+        .spec-value {
+            font-size: 13px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .impact-stats {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .impact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .impact-before {
+            font-size: 20px;
+            font-weight: 700;
+            color: #FF8000;
+        }
+
+        .impact-arrow {
+            font-size: 16px;
+            color: #47C7FC;
+        }
+
+        .impact-after {
+            font-size: 20px;
+            font-weight: 700;
+            color: #FFD700;
+        }
+
+        .impact-label {
+            font-size: 11px;
+            color: #888;
+        }
+
+        .journey-track {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+        }
+
+        .journey-dot {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .journey-pos {
+            font-size: 12px;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .journey-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 10px;
+            color: #666;
+        }
+
+        .upgrade-detail {
+            font-size: 12px;
+            color: #aaa;
+            margin: 0 0 8px 0;
+            line-height: 1.4;
+        }
+
+        .position-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .hover-hint {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: rgba(0,0,0,0.6);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 11px;
+            color: #888;
+            transition: opacity 0.3s ease;
+        }
+
+        .hover-hint.hidden {
+            opacity: 0;
+        }
+
+        .controls {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .stage-btn {
+            flex: 1;
+            padding: 16px 12px;
+            border: 2px solid #FF8000;
+            border-radius: 12px;
+            background: #1a1a1a;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .stage-btn:hover {
+            background: #2a2a2a;
+        }
+
+        .stage-btn.active {
+            background: #FF8000;
+            color: #000;
+        }
+
+        .stage-btn[data-stage="1"] { border-color: #FF8000; }
+        .stage-btn[data-stage="1"].active { background: #FF8000; }
+
+        .stage-btn[data-stage="2"] { border-color: #47C7FC; }
+        .stage-btn[data-stage="2"].active { background: #47C7FC; }
+
+        .stage-btn[data-stage="3"] { border-color: #FFD700; }
+        .stage-btn[data-stage="3"].active { background: #FFD700; }
+
+        .btn-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .btn-desc {
+            display: block;
+            font-size: 11px;
+            opacity: 0.7;
+            margin-top: 4px;
+        }
+
+        .progress-bar {
+            display: flex;
+            gap: 4px;
+            height: 4px;
+        }
+
+        .progress-segment {
+            flex: 1;
+            background: #333;
+            border-radius: 2px;
+            transition: background 0.3s ease;
+        }
+
+        .progress-segment.filled:nth-child(1) { background: #FF8000; }
+        .progress-segment.filled:nth-child(2) { background: #47C7FC; }
+        .progress-segment.filled:nth-child(3) { background: #FFD700; }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .controls {
+                flex-direction: column;
+            }
+            .title {
+                font-size: 22px;
+            }
+            .info-card {
+                width: 240px;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="evolution-container">
+        <div class="header">
+            <h2 class="title">McLaren MCL38 Evolution</h2>
+            <p class="subtitle">How upgrades won the 2024 championship</p>
+        </div>
+
+        <div class="display" id="displayArea">
+            <!-- Video (hidden by default) -->
+            <video id="mainVideo" autoplay loop muted playsinline style="display: none;">
+                <source src="assets/optimized/mclaren_rotating_optimized.mp4" type="video/mp4">
+            </video>
+
+            <!-- Stage images -->
+            <img id="img1" class="active" src="assets/optimized/mclaren_stage1_pre_miami.jpg" alt="Pre-Miami Spec">
+            <img id="img2" src="assets/optimized/mclaren_stage2_miami_upgrade.jpg" alt="Miami Upgrade">
+            <img id="img3" src="assets/optimized/mclaren_stage3_championship.jpg" alt="Final Spec">
+
+            <div class="stats-overlay">
+                <span class="stats-label" id="roundsLabel">Rounds 1-5</span>
+                <span class="stats-value" id="statsValue">19.2 pts/race</span>
+            </div>
+
+            <!-- Hover hint -->
+            <div class="hover-hint" id="hoverHint">Hover for specs</div>
+
+            <!-- Info Card -->
+            <div class="info-card" id="infoCard">
+                <!-- Specs Section -->
+                <div class="info-section">
+                    <h4 class="info-title">Technical Specs</h4>
+                    <div class="spec-grid">
+                        <div class="spec-item">
+                            <span class="spec-label">Power Unit</span>
+                            <span class="spec-value">Mercedes M15</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Drivers</span>
+                            <span class="spec-value">NOR / PIA</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Weight</span>
+                            <span class="spec-value">798 kg</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Suspension</span>
+                            <span class="spec-value">Push/Pull</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Upgrade Impact -->
+                <div class="info-section">
+                    <h4 class="info-title">Miami Upgrade Impact</h4>
+                    <div class="impact-stats">
+                        <div class="impact-item">
+                            <span class="impact-before">19.2</span>
+                            <span class="impact-arrow">→</span>
+                            <span class="impact-after">31.1</span>
+                        </div>
+                        <span class="impact-label">pts/race average</span>
+                    </div>
+                </div>
+
+                <!-- Championship Journey -->
+                <div class="info-section">
+                    <h4 class="info-title">Championship Journey</h4>
+                    <div class="journey-track">
+                        <div class="journey-dot" style="background: #666;"><span class="journey-pos">4</span></div>
+                        <div class="journey-dot" style="background: #666;"><span class="journey-pos">4</span></div>
+                        <div class="journey-dot" style="background: #FF8000;"><span class="journey-pos">3</span></div>
+                        <div class="journey-dot" style="background: #47C7FC;"><span class="journey-pos">2</span></div>
+                        <div class="journey-dot" style="background: #FFD700;"><span class="journey-pos">1</span></div>
+                        <div class="journey-dot" style="background: #FFD700;"><span class="journey-pos">1</span></div>
+                    </div>
+                    <div class="journey-labels">
+                        <span>Bahrain</span>
+                        <span>Abu Dhabi</span>
+                    </div>
+                </div>
+
+                <!-- Current Stage -->
+                <div class="info-section">
+                    <h4 class="info-title" id="stageTitle" style="color: #FF8000;">Pre-Miami</h4>
+                    <p class="upgrade-detail" id="upgradeDetail">Standard 2024 launch specification</p>
+                    <span class="position-badge" id="positionBadge" style="background: #FF8000;">4th in standings</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button class="stage-btn active" data-stage="1" onclick="setStage(1)">
+                <span class="btn-label">Pre-Miami</span>
+                <span class="btn-desc">Traditional sidepods</span>
+            </button>
+            <button class="stage-btn" data-stage="2" onclick="setStage(2)">
+                <span class="btn-label">Miami Upgrade</span>
+                <span class="btn-desc">Hollowed sidepods</span>
+            </button>
+            <button class="stage-btn" data-stage="3" onclick="setStage(3)">
+                <span class="btn-label">Championship</span>
+                <span class="btn-desc">Final spec</span>
+            </button>
+        </div>
+
+        <div class="progress-bar">
+            <div class="progress-segment filled"></div>
+            <div class="progress-segment"></div>
+            <div class="progress-segment"></div>
+        </div>
+    </div>
+
+    <script>
+        const stageData = {
+            1: {
+                rounds: "Rounds 1-5",
+                stats: "19.2 pts/race",
+                color: "#FF8000",
+                title: "Pre-Miami",
+                detail: "Standard 2024 launch specification",
+                position: "4th in standings"
+            },
+            2: {
+                rounds: "Round 6+",
+                stats: "+0.5s per lap",
+                color: "#47C7FC",
+                title: "Miami Upgrade",
+                detail: "Revolutionary sidepod undercut, new floor edges, tighter coke-bottle",
+                position: "Jumped to 3rd"
+            },
+            3: {
+                rounds: "Round 24",
+                stats: "31.1 pts/race",
+                color: "#FFD700",
+                title: "Championship Spec",
+                detail: "Optimized aero package, 666 total points",
+                position: "Champions!"
+            }
+        };
+
+        let infoCardVisible = false;
+
+        function setStage(stage) {
+            // Update buttons
+            document.querySelectorAll('.stage-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`[data-stage="${stage}"]`).classList.add('active');
+
+            // Update images
+            document.querySelectorAll('.display img').forEach(img => {
+                img.classList.remove('active');
+            });
+            document.getElementById(`img${stage}`).classList.add('active');
+
+            // Update stats
+            const data = stageData[stage];
+            document.getElementById('roundsLabel').textContent = data.rounds;
+            document.getElementById('statsValue').textContent = data.stats;
+            document.getElementById('statsValue').style.color = data.color;
+
+            // Update info card current stage section
+            document.getElementById('stageTitle').textContent = data.title;
+            document.getElementById('stageTitle').style.color = data.color;
+            document.getElementById('upgradeDetail').textContent = data.detail;
+            document.getElementById('positionBadge').textContent = data.position;
+            document.getElementById('positionBadge').style.background = data.color;
+
+            // Update progress bar
+            document.querySelectorAll('.progress-segment').forEach((seg, index) => {
+                if (index < stage) {
+                    seg.classList.add('filled');
+                } else {
+                    seg.classList.remove('filled');
+                }
+            });
+        }
+
+        // Hover/tap functionality for info card
+        const displayArea = document.getElementById('displayArea');
+        const infoCard = document.getElementById('infoCard');
+        const hoverHint = document.getElementById('hoverHint');
+
+        displayArea.addEventListener('mouseenter', () => {
+            infoCard.classList.add('visible');
+            hoverHint.classList.add('hidden');
+        });
+
+        displayArea.addEventListener('mouseleave', () => {
+            infoCard.classList.remove('visible');
+            hoverHint.classList.remove('hidden');
+        });
+
+        // Mobile tap toggle
+        displayArea.addEventListener('click', (e) => {
+            // Don't toggle if clicking on the info card itself
+            if (e.target.closest('.info-card')) return;
+
+            infoCardVisible = !infoCardVisible;
+            if (infoCardVisible) {
+                infoCard.classList.add('visible');
+                hoverHint.classList.add('hidden');
+            } else {
+                infoCard.classList.remove('visible');
+                hoverHint.classList.remove('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
