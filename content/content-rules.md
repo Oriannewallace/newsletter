@@ -139,6 +139,9 @@
 - Explain technical concepts simply
 - Use driver/team badges for visual clarity
 - Link insights to strategy, not just results
+- **Verify technical specs from official sources** (FIA regulations, Formula1.com, team specs)
+- Cross-reference multiple sources before publishing numbers
+- When citing regulations, link to FIA documents where possible
 
 ### Property Content
 - Include actual numbers (yields, prices, growth)
@@ -174,6 +177,10 @@
 ### Data Presentation
 - Use tables for comparisons
 - Use stats grids for key numbers
+- **Always show your working for percentages** — include the calculation or source in brackets
+  - Good: "That's a 4% weight reduction (32kg ÷ 800kg)"
+  - Good: "0.3 seconds per lap (widely cited F1 rule of thumb)"
+  - Bad: "That's a 4% weight reduction" with no context
 - Bold the most important figures
 - Round numbers for readability (23.7% not 23.6842%)
 

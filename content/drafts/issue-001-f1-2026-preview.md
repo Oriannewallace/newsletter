@@ -86,7 +86,6 @@ Lando Norris is the reigning champion. Max wants his title back. Ferrari and Mer
 
 **What are you most excited about this season?** Hit reply and let me know.
 
-Until next time,
 **Orianne**
 
 ---

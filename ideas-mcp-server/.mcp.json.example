@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "newsletter-ideas": {
+      "command": "/Users/oriannewallace/Desktop/Visual Studio Projects/newsletter/ideas-mcp-server/.venv/bin/python",
+      "args": [
+        "/Users/oriannewallace/Desktop/Visual Studio Projects/newsletter/ideas-mcp-server/server.py"
+      ]
+    }
+  }
+}

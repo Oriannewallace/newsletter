@@ -135,9 +135,9 @@ After each newsletter:
 
 ```
 Newsletter signup link with tracking:
-https://thewinningformula.beehiiv.com/subscribe?utm_source=twitter&utm_medium=thread&utm_campaign=issue_01
-https://thewinningformula.beehiiv.com/subscribe?utm_source=linkedin&utm_medium=post&utm_campaign=issue_01
-https://thewinningformula.beehiiv.com/subscribe?utm_source=instagram&utm_medium=carousel&utm_campaign=issue_01
+https://the-winning-formula.beehiiv.com/subscribe?utm_source=twitter&utm_medium=thread&utm_campaign=issue_01
+https://the-winning-formula.beehiiv.com/subscribe?utm_source=linkedin&utm_medium=post&utm_campaign=issue_01
+https://the-winning-formula.beehiiv.com/subscribe?utm_source=instagram&utm_medium=carousel&utm_campaign=issue_01
 ```
 
 ---
